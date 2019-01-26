@@ -1,0 +1,86 @@
+
+.main-signup {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.65), 
+      rgba(0, 0, 0, 0.65)
+    );
+    /* url(../img/sun-pattern.png) fixed; */
+  min-height: 100vh;
+  font-size: 1em;
+}
+
+.main-signup__inner {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.lead {
+  text-align: center;
+}
+
+.signup-form {
+  border: 2px solid;
+  border-radius: 5px;
+  margin-bottom: 22px;
+  padding: 20px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.form-field {
+  margin-bottom: 27px;
+}
+
+label {
+  cursor: pointer;
+  color: #648880;
+	cursor: pointer;
+	font-weight: 400;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"], 
+input[type="password"] {
+  font-weight: 300;
+  width: 100%;
+  border: none;
+  padding: 5px;
+  background: transparent;
+  border-bottom: 1px solid #c6c9cc;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus, 
+input[type="password"]:focus {
+  border-bottom: 1px solid #316396;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+input::placeholder {
+  font-weight: 300;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+.admin-info {
+  position: relative;
+}
+
+.admin-field {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+
+.admin-user .admin-field {
+  max-height: 300px;
+}
+
+.form-btn {
+  font-size: 1.5em;
+}

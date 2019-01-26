@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>User Registration | Politico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="fonts/font-face-syntax.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/signup.css">
+</head>
+
+<body>
+  <header class="header full-width">
+    <!-- <div class="full-width"> -->
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <i class="fas fa-person-booth"></i>Politico
+      </a>
+  
+      <span class="header__menu icon bar-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+    </div>
+  
+    <nav class="nav">
+      <span class="header__menu icon close-icon">
+        <i class="fas fa-times"></i>
+      </span>
+      <ul class="nav__list">
+        <li class="nav__item"><a href="login.html">Log In</a></li>
+        <li class="nav__item"><a href="signup.html" class="curr-page">Sign Up</a></li>
+      </ul>
+    </nav>
+    <!-- </div> -->
+  </header>
+
+  <main class="main main-signup">
+
+    <section class="lead row-alt">
+      <div class="lead__inner container">
+        <h1>Sign Up Form</h1>
+
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut praesentium necessitatibus corrupti nemo quidem fugiat ratione repellat?</p>
+      </div>
+    </section>
+    
+    <section class="row">
+      <div class="container">
+        <form class="signup-form" action="#">
+
+          <fieldset class="personal-info">
+            <div class="form-field">
+              <label for="first-name">First Name <abbr title="required">*</abbr></label>
+              <input type="text" placeholder="Adamu" id="first-name" autofocus required>
+            </div>
+            
+            <div class="form-field">
+              <label for="last-name">Last Name <abbr title="required">*</abbr></label>
+              <input type="text" placeholder="Ayodeji" id="last-name" required>
+            </div>
+            
+            <div class="form-field">
+              <label for="other-name">Other Name</label>
+              <input type="text" placeholder="Alex" id="other-name">
+            </div>
+            
+            <div class="form-field">
+              <label for="phone">Phone Number <abbr title="required">*</abbr></label>
+              <input type="tel" placeholder="08012345678" id="phone" required>
+            </div>
+
+            <div class="form-field">
+              <label for="passport">Passport URL <abbr title="required">*</abbr></label>
+              <input type="text" placeholder="http://domain.com/image-path/image" id="passport" required>
+            </div>
+          </fieldset>
+          
+          <fieldset class="info-for-login">
+            <div class="form-field">
+              <label for="email">Email <abbr title="required">*</abbr></label>
+              <input type="email" placeholder="aaa@example.com" id="email" required>
+            </div>
+            
+            <div class="form-field">
+              <label for="password">Password <abbr title="required">*</abbr></label>
+              <input type="password" placeholder="Enter password" id="password" required>
+            </div>
+            
+            <div class="form-field">
+              <label for="password">Confirm Password <abbr title="required">*</abbr></label>
+              <input type="password" placeholder="Enter password again" id="password" required disabled>
+            </div>
+          </fieldset>
+          
+          <fieldset class="admin-info">
+            <div class="form-field">
+              <input type="checkbox" value="is-admin" name="adminCheck" id="admin-check">
+              <label for="admin-check">Do you want to signup as an Admin?</label>
+            </div>
+            
+            <div class="form-field admin-field">
+              <label for="admin-secret-code">Admin Secret Code</label>
+              <input type="text" placeholder="Enter code here" id="admin-secret-code">
+            </div>
+          </fieldset>
+
+          <div class="form-field">
+            <button type="button" class="btn btn-default form-btn" name="signupFormBtn" disabled>
+              Sign Up
+            </button>
+
+            <!-- <input type="button" class="btn btn-default" name="signupFormBtn" value="Sign Up" disabled> -->
+          </div>
+      
+          <p class="sign-in-to-account">
+            Already a member?
+            <a href="login.html" class="lined-link">Sign in to your account</a>
+          </p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer full-width">
+    <a href="javascript:void(0)" class="footer__logo">
+      <i class="fas fa-person-booth"></i>Politico
+    </a>
+    <small class="footer__text">&copy;2019 All rights reserved</small>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/signup.js"></script>
+</body>
+
+</html>
