@@ -1,0 +1,166 @@
+
+/* General Styles */
+
+.container  {
+  max-width: 760px;
+}
+
+.main-cast-vote {
+  min-height: 88%;
+  font-size: 1em;
+}
+
+h3 {
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+/* Styles for tab links pane */
+
+.tab-links-pane {
+  border-top: 4px solid #293f50;
+  border-bottom: 4px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+.tab-links__list {
+  display: flex;
+}
+
+.tab-links__item {
+  cursor: pointer;
+  padding: 8px 7px;
+  transition: all 0.5s ease;
+  text-align: center;
+}
+
+.tab-links__item:hover {
+  color: #293f50;
+  background-color: #fff;
+}
+
+.show-federal-ballot .federal-tab,
+.show-legislative-ballot .legislative-tab,
+.show-state-ballot .state-tab,
+.show-lg-ballot .lg-tab {
+  color: #293f50;
+  background-color: #fff;
+}
+
+/* Styles for toggling different offices */
+
+.ballot-federal,
+.ballot-legislative,
+.ballot-state,
+.ballot-lg {
+  display: none;
+}
+
+.show-federal-ballot .ballot-federal,
+.show-legislative-ballot .ballot-legislative,
+.show-state-ballot .ballot-state,
+.show-lg-ballot .ballot-lg {
+  display: block;
+}
+
+/* Styles for ballot papers */
+
+.ballot {
+  font-size: 1em;
+}
+
+.ballot section section:first-of-type {
+  margin-bottom: 44px;
+}
+
+.ballot form {
+  border: 1px solid;
+  padding: 10px;
+}
+
+.candidate__item {
+  margin-bottom: 15px;
+  cursor: pointer;
+  background: #cbe2c1;
+  border: 2px solid;
+  font-size: 1em;
+}
+
+.candidate__item:hover {
+  color: #271557;
+  background: #99bad3;
+  border-color: #271557;
+}
+
+.selected {
+  color: #271557;
+  background: #99bad3;
+  border-color: #271557;
+}
+
+.candidate__item label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.candidate__item div  {
+  flex-grow: 1;
+  padding: 5px 10px;
+}
+
+.candidate__item .name {
+  width: 60%;
+  font-size: 1.2em;
+}
+
+.candidate__item .party {
+  width: 30%;
+}
+
+.candidate__item .logo {
+  max-width: 75px;
+}
+
+.candidate__item .logo img {
+  max-width: 100%;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.5em;
+}
+
+.btn-group button {
+  width: 49%;
+  padding: 7px 5px;
+}
+
+.no-candidate {
+  font-style: oblique;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 660px) {
+
+  .tab-links__item {
+    padding: 10px 25px;
+  }
+
+  .candidate__item label {
+    font-size: 1em;
+  }
+
+  .btn-group button {
+    padding: 10px 7px;
+  }
+}

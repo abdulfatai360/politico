@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>User - Cast Vote | Politico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../fonts/font-face-syntax.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/cast-vote.css">
+</head>
+
+<body>
+  <header class="header full-width">
+    <!-- <div class="full-width"> -->
+    <div class="header__inner">
+      <a href="./index.html" class="header__logo">
+        <i class="fas fa-person-booth"></i>Politico
+      </a>
+  
+      <span class="header__menu icon bar-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+    </div>
+  
+    <nav class="nav">
+      <span class="header__menu icon close-icon">
+        <i class="fas fa-times"></i>
+      </span>
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="./cast-vote.html" class="curr-page">Cast Vote</a>
+        </li>
+        <li class="nav__item">
+          <a href="./run-election.html">Run for Election</a>
+        </li>
+        <li class="nav__item">
+          <a href="./election-result.html">Election Result</a>
+        </li>
+        <li class="nav__item">
+          <a href="../index.html">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- </div> -->
+  </header>
+
+  <main class="main main-cast-vote">
+    <section class="row-alt lead">
+      <div class="lead__inner container">
+        <h1>Cast your Vote Here</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam soluta ex illum illo explicabo nobis?</p>
+      </div>
+    </section>
+
+    <!-- Tab Links Panel -->
+    
+    <div class="tab-links-pane">
+      <ul class="tab-links__list container">
+        <li class="tab-links__item federal-tab">
+          Federal 
+        </li>
+        <li class="tab-links__item legislative-tab">
+          Legislative
+        </li>
+        <li class="tab-links__item state-tab">
+          State
+        </li>
+        <li class="tab-links__item lg-tab">
+          Local Government
+        </li>
+      </ul>
+    </div>
+
+    <!-- Ballot paper section -->
+
+    <section class="ballot row">
+      <div class="ballot__inner container">
+        <section class="ballot-federal">
+          <h2>Federal Ballot</h2>
+        
+          <section class="ballot-president">
+            <h3 class="office-name">Executive President</h3>
+      
+            <form class="candidate__list">
+              <div class="candidate__item">
+                <label for="omoyele-sowore">
+                  <div class="name">Omoyele Sowore</div>
+                  <div class="party">AAC</div>
+                  <div class="logo">
+                    <img src="../img/pdp-logo.png" alt="">
+                  </div>
+                </label>
+
+                <input type="radio" name="presidentCandidate" id="omoyele-sowore" value="Omoyele Sowore">
+              </div>
+
+              <div class="candidate__item">
+                <label for="atiku-abubakar">
+                  <div class="name">Atiku Abubakar</div>
+                  <div class="party">PDP</div>
+                  <div class="logo">
+                    <img src="../img/pdp-logo.png" alt="">
+                  </div>
+                </label>
+
+                <input type="radio" name="presidentCandidate" id="atiku-abubakar" value="Atiku Abubakar">
+              </div>
+
+              <div class="candidate__item">
+                <label for="muhammadu-buhari">
+                  <div class="name">Muhammadu Buhari</div>
+                  <div class="party">APC</div>
+                  <div class="logo">
+                    <img src="../img/apc-logo.png" alt="">
+                  </div>
+                </label>
+
+                <input type="radio" name="presidentCandidate" id="muhammadu-buhari" value="Muhammadu Buhari">
+              </div>
+
+              <div class="btn-group">
+                <button type="button" class="btn btn-cta submit-vote-btn" name="submit-vote-btn">
+                  Cast Vote
+                </button>
+                <button type="button" class="btn btn-cta clr-vote-btn" name="clr-vote-btn">
+                  Clear Selection
+                </button>
+              </div>
+            </form>
+          </section>
+        </section>
+        
+        <section class="ballot-legislative">
+          <h2>Legislative Ballot</h2>
+        
+          <section class="ballot-senate">
+            <h3 class="office-name">Senate</h3>
+      
+            <form class="candidate__list">
+              <div class="candidate__item">
+                <label for="bukola-saraki">
+                  <div class="name">Bukola Saraki</div>
+                  <div class="party">PDP</div>
+                  <div class="logo">
+                    <img src="../img/pdp-logo.png" alt="">
+                  </div>
+                </label>
+              
+                <input type="radio" name="senateCandidate" id="bukola-saraki" value="Bukola Saraki">
+              </div>
+      
+              <div class="candidate__item">
+                <label for="isiaka-ajimobi">
+                  <div class="name">Isiaka Ajimobi</div>
+                  <div class="party">APC</div>
+                  <div class="logo">
+                    <img src="../img/apc-logo.png" alt="">
+                  </div>
+                </label>
+              
+                <input type="radio" name="senateCandidate" id="isiaka-ajimobi" value="Isiaka Ajimobi">
+              </div>
+      
+              <div class="btn-group">
+                <button type="button" class="btn btn-cta submit-vote-btn" name="submit-vote-btn">
+                  Cast Vote
+                </button>
+                <button type="button" class="btn btn-cta clr-vote-btn" name="clr-vote-btn">
+                  Clear Selection
+                </button>
+              </div>
+            </form>
+          </section>
+      
+          <section class="ballot-hor">
+            <h3 class="office-name">House of Representative</h3>
+      
+            <form class="candidate__list">
+              <div class="candidate__item">
+                <label for="olatoye-sugar">
+                  <div class="name">Olatoye Sugar</div>
+                  <div class="party">ADC</div>
+                  <div class="logo">
+                    <img src="../img/apc-logo.png" alt="">
+                  </div>
+                </label>
+              
+                <input type="radio" name="horCandidate" id="olatoye-sugar" value="Olatoye Sugar">
+              </div>
+
+              <div class="candidate__item">
+                <label for="omoyele-sowore">
+                  <div class="name">Omoyele Sowore</div>
+                  <div class="party">AAC</div>
+                  <div class="logo">
+                    <img src="../img/pdp-logo.png" alt="">
+                  </div>
+                </label>
+              
+                <input type="radio" name="horCandidate" id="omoyele-sowore" value="Omoyele Sowore">
+              </div>
+      
+              <div class="btn-group">
+                <button type="button" class="btn btn-cta submit-vote-btn" name="submit-vote-btn">
+                  Cast Vote
+                </button>
+                <button type="button" class="btn btn-cta clr-vote-btn" name="clr-vote-btn">
+                  Clear Selection
+                </button>
+              </div>
+            </form>
+          </section>
+        </section>
+        
+        <section class="ballot-state">
+          <h2>State Ballot</h2>
+        
+          <section class="ballot-governor">
+            <h3 class="office-name">Executive Governor</h3>
+      
+            <form class="candidate__list">
+              <p class="no-candidate">No candidate for this position</p>
+
+              <div class="btn-group">
+                <button type="button" class="btn btn-cta submit-vote-btn" name="submit-vote-btn">
+                  Cast Vote
+                </button>
+                <button type="button" class="btn btn-cta clr-vote-btn" name="clr-vote-btn">
+                  Clear Selection
+                </button>
+              </div>
+            </form>
+          </section>
+        </section>
+        
+        <section class="ballot-lg">
+          <h2>Local Government Ballot</h2>
+        
+          <section class="ballot-chairman">
+            <h3 class="office-name">Council Chairman</h3>
+      
+            <form class="candidate__list">
+              <div class="candidate__item">
+                <label for="omoyele-sowore">
+                  <div class="name">Omoyele Sowore</div>
+                  <div class="party">AAC</div>
+                  <div class="logo">
+                    <img src="../img/pdp-logo.png" alt="">
+                  </div>
+                </label>
+            
+                <input type="radio" name="presidentCandidate" id="omoyele-sowore" value="Omoyele Sowore">
+              </div>
+            
+              <div class="candidate__item">
+                <label for="omoyele-sowore">
+                  <div class="name">Omoyele Sowore</div>
+                  <div class="party">AAC</div>
+                  <div class="logo">
+                    <img src="../img/pdp-logo.png" alt="">
+                  </div>
+                </label>
+            
+                <input type="radio" name="presidentCandidate" id="omoyele-sowore" value="Omoyele Sowore">
+              </div>
+            
+              <div class="btn-group">
+                <button type="button" class="btn btn-cta submit-vote-btn" name="submit-vote-btn">
+                  Cast Vote
+                </button>
+                <button type="button" class="btn btn-cta clr-vote-btn" name="clr-vote-btn">
+                  Clear Selection
+                </button>
+              </div>
+            </form>
+          </section>
+      
+          <section class="ballot-councillor">
+            <h3 class="office-name">Councillor</h3>
+      
+            <form class="candidate__list">
+              <div class="candidate__item">
+                <label for="omoyele-sowore">
+                  <div class="name">Omoyele Sowore</div>
+                  <div class="party">AAC</div>
+                  <div class="logo">
+                    <img src="../img/pdp-logo.png" alt="">
+                  </div>
+                </label>
+            
+                <input type="radio" name="presidentCandidate" id="omoyele-sowore" value="Omoyele Sowore">
+              </div>
+            
+              <div class="candidate__item">
+                <label for="omoyele-sowore">
+                  <div class="name">Omoyele Sowore</div>
+                  <div class="party">AAC</div>
+                  <div class="logo">
+                    <img src="../img/pdp-logo.png" alt="">
+                  </div>
+                </label>
+            
+                <input type="radio" name="presidentCandidate" id="omoyele-sowore" value="Omoyele Sowore">
+              </div>
+            
+              <div class="btn-group">
+                <button type="button" class="btn btn-cta submit-vote-btn" name="submit-vote-btn">
+                  Cast Vote
+                </button>
+                <button type="button" class="btn btn-cta clr-vote-btn" name="clr-vote-btn">
+                  Clear Selection
+                </button>
+              </div>
+            </form>
+          </section>
+        </section>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer full-width">
+    <a href="javascript:void(0)" class="footer__logo">
+      <i class="fas fa-person-booth"></i>Politico
+    </a>
+    <small class="footer__text">&copy;2019 All rights reserved</small>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/cast-vote.js"></script>
+</body>
+
+</html>
