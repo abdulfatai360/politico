@@ -1,0 +1,143 @@
+
+.main-election-result {
+  font-size: 1em;
+  min-height: 85%;
+}
+
+.container  {
+  max-width: 760px;
+}
+
+h3 {
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+/* Styles for tab links pane */
+
+.tab-links-pane {
+  border-top: 4px solid #293f50;
+  border-bottom: 4px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+.tab-links__list {
+  display: flex;
+}
+
+.tab-links__item {
+  cursor: pointer;
+  padding: 8px 7px;
+  transition: all 0.5s ease;
+}
+
+.tab-links__item:hover {
+  color: #293f50;
+  background-color: #fff;
+}
+
+.show-federal-result .federal-tab,
+.show-legislative-result .legislative-tab,
+.show-state-result .state-tab,
+.show-lg-result .lg-tab {
+  color: #293f50;
+  background-color: #fff;
+}
+
+/* Styles for toggling different offices */
+
+.result-federal,
+.result-legislative,
+.result-state,
+.result-lg {
+  display: none;
+}
+
+.show-federal-result .result-federal,
+.show-legislative-result .result-legislative,
+.show-state-result .result-state,
+.show-lg-result .result-lg {
+  display: block;
+}
+
+/* Styles for presenting result data */
+
+table {
+	width: 100%;
+	margin-bottom: 44px;
+  font-size: 0.9em;
+}
+
+.election-result__table .cand-nm,
+.election-result__table .cand-nm-th {
+  width: 35%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.election-result__table .name,
+.election-result__table .name-th {
+  width: 27%;
+  padding-right: 5px;
+}
+
+.election-result__table .acronym,
+.election-result__table .acronym-th {
+  width: 15%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.election-result__table .votes,
+.election-result__table .votes-th {
+  width: 10%;
+  padding-left: 5px;
+  /* padding-right: 5px; */
+}
+
+thead th{
+	color: #648880;
+}
+
+th,
+tbody th {
+	text-align: left;
+  font-weight: 400;
+}
+
+tbody th,
+tbody td {
+	padding-top: 10px;
+	border-top: 1px solid #dfe2e5;
+}
+
+tbody th{
+	color: #a9b2b9;
+}
+
+th,
+td {
+	padding-bottom: 10px;
+	vertical-align: top;
+}
+
+.no-show {
+  font-style: oblique;
+  margin-bottom: 44px;
+}
+
+/* Styles for responsiveness */
+
+@media (min-width: 660px) {
+
+  .tab-links__item {
+    padding: 10px 25px;
+  }
+
+  table {
+    font-size: 1em;
+  }
+
+}
