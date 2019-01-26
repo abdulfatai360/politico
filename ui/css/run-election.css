@@ -1,0 +1,118 @@
+
+.main-run-election {
+  min-height: 88%;
+  font-size: 1em;
+}
+
+.eoi-form {
+  border: 2px solid;
+  border-radius: 5px;
+  margin-bottom: 22px;
+  padding: 20px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.eoi-form p {
+  color: #648880;
+  margin-bottom: 0.3em;
+  font-weight: 400;
+}
+
+p abbr {
+  text-decoration: none;
+  color: #dd2C00;
+  font-size: 1.5em;
+}
+
+.form-field {
+  margin-bottom: 27px;
+}
+
+label {
+  cursor: pointer;
+  color: #648880;
+	cursor: pointer;
+	font-weight: 400;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"], 
+input[type="password"] {
+  font-weight: 300;
+  width: 100%;
+  border: none;
+  padding: 5px;
+  background: transparent;
+  border-bottom: 1px solid #c6c9cc;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-bottom: 1px solid #316396;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  margin-left: 10px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #c6c9cc;
+  transition: 0.2s all linear;
+}
+
+input[type="radio"]:first-of-type {
+  margin-left: 0;
+}
+
+input:checked {
+  border: 5px solid #316396;
+}
+
+input::placeholder {
+  font-weight: 300;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+select {
+  color: #888;
+  cursor: pointer;
+  font-weight: 300;
+  width: 100%;
+  padding: 5px;
+  background: transparent;
+  border: 1px solid #c6c9cc;
+}
+
+select:focus {
+  border: 1px solid #316396;
+}
+
+option {
+  padding-top: 8px;
+}
+
+textarea {
+  color: #888;
+  width: 100%;
+  height: 66px;
+  resize: vertical;
+  text-align: left;
+  padding: 5px;
+  border: 1px solid #c6c9cc;
+}
+
+textarea:focus {
+  border-color: #316396;
+}
+
+.form-btn {
+  font-size: 1.5em;
+}

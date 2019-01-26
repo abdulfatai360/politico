@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>User - Run for Election | Politico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../fonts/font-face-syntax.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/run-election.css">
+</head>
+
+<body>
+  <header class="header full-width">
+    <!-- <div class="full-width"> -->
+    <div class="header__inner">
+      <a href="./index.html" class="header__logo">
+        <i class="fas fa-person-booth"></i>Politico
+      </a>
+  
+      <span class="header__menu icon bar-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+    </div>
+  
+    <nav class="nav">
+      <span class="header__menu icon close-icon">
+        <i class="fas fa-times"></i>
+      </span>
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="./cast-vote.html">Cast Vote</a>
+        </li>
+        <li class="nav__item">
+          <a href="./run-election.html" class="curr-page">Run for Election</a>
+        </li>
+        <li class="nav__item">
+          <a href="./election-result.html">Election Result</a>
+        </li>
+        <li class="nav__item">
+          <a href="../index.html">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- </div> -->
+  </header>
+
+  <main class="main main-run-election">
+
+    <section class="lead row-alt">
+      <div class="lead__inner container">
+        <h1>Expression of Interest Form</h1>
+    
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut praesentium necessitatibus corrupti nemo quidem fugiat ratione repellat?</p>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="container">
+        <form class="eoi-form">
+          <fieldset class="personal-info">
+            <div class="form-field">
+              <label for="first-name">First Name <abbr title="required">*</abbr></label>
+              <input type="text" placeholder="Adamu" id="first-name" readonly>
+            </div>
+            
+            <div class="form-field">
+              <label for="last-name">Last Name <abbr title="required">*</abbr></label>
+              <input type="text" placeholder="Ayodeji" id="last-name" readonly>
+            </div>
+            
+            <div class="form-field">
+              <label for="other-name">Other Name <abbr title="required">*</abbr></label>
+              <input type="text" placeholder="Alex" id="other-name" readonly>
+            </div>
+            
+            <div class="form-field">
+              <label for="phone">Phone Number <abbr title="required">*</abbr></label>
+              <input type="tel" placeholder="08012345678" id="phone" readonly>
+            </div>
+            
+            <div class="form-field">
+              <label for="email">Email <abbr title="required">*</abbr></label>
+              <input type="email" placeholder="aaa@example.com" id="email" readonly>
+            </div>
+            
+            <div class="form-field">
+              <p>Select Gender <abbr title="required">*</abbr></p>
+              <input type="radio" id="male" name="gender" value="male">
+              <label for="male">Male</label>
+            
+              <input type="radio" id="female" name="gender" value="female">
+              <label for="female">Female</label>
+            
+              <input type="radio" id="other" name="gender" value="other">
+              <label for="other">Other</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="political-info">
+            <div class="form-field">
+              <label for="party">Political Party Affiliation <abbr title="required">*</abbr></label>
+              <select name="party" id="party" class="party">
+                <option value="">--Please select a party--</option>
+                <option value="apc">Action Peoples Congress</option>
+                <option value="pdp">Peoples Democratic Party</option>
+                <option value="adp">Actions Democratic Party</option>
+                <option value="ypp">Young Peoples Party</option>
+              </select>
+            </div>
+            
+            <div class="form-field">
+              <label for="office-type">Select Office Type <abbr title="required">*</abbr></label>
+              <select name="officeType" id="office-type" class="office-type">
+                <option>--Please select office type--</option>
+                <option>Federal</option>
+                <option>Legislative</option>
+                <option>State</option>
+                <option>Local Government</option>
+              </select>
+            </div>
+            
+            <div class="form-field">
+              <label for="office-name">Select Office Name <abbr title="required">*</abbr></label>
+              <select name="officeName" id="office-name" class="office-name">
+                <option value="">--Please select office type--</option>
+              </select>
+            </div>
+            
+            <div class="form-field">
+              <label for="manifesto">Your Manifesto</label>
+              <textarea name="" id="manifesto" cols="50" rows="10" placeholder="Write your manifesto here..."></textarea>
+            </div>
+          </fieldset>
+          
+          <div class="form-field">
+            <button type="button" class="btn btn-default form-btn" name="eoiFormBtn">
+              Submit Interest
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer full-width">
+    <a href="javascript:void(0)" class="footer__logo">
+      <i class="fas fa-person-booth"></i>Politico
+    </a>
+    <small class="footer__text">&copy;2019 All rights reserved</small>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/run-election.js"></script>
+</body>
+
+</html>
