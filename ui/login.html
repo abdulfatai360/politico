@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>User Log In Form | Politico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="fonts/font-face-syntax.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+  <header class="header full-width">
+    <!-- <div class="full-width"> -->
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <i class="fas fa-person-booth"></i>Politico
+      </a>
+  
+      <span class="header__menu icon bar-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+    </div>
+  
+    <nav class="nav">
+      <span class="header__menu icon close-icon">
+        <i class="fas fa-times"></i>
+      </span>
+      <ul class="nav__list">
+        <li class="nav__item"><a href="login.html" class="curr-page">Log In</a></li>
+        <li class="nav__item"><a href="signup.html">Sign Up</a></li>
+      </ul>
+    </nav>
+    <!-- </div> -->
+  </header>
+
+  <main class="main main-login">
+    <section class="lead row-alt">
+      <div class="lead__inner container">
+        <h1>Log In Form</h1>
+    
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut praesentium necessitatibus corrupti nemo quide fugiat ratione repellat?</p>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="container">
+        <div class="img-plus-form-container">
+          <div class="comp-img-container">
+            <div class="login-comp-img"></div>
+          </div>
+        
+          <form class="login-form" action="#">
+            <fieldset class="login-credentials">
+              <div class="form-field">
+                <label for="auth-email">Authorized Email <abbr title="required">*</abbr></label>
+                <input type="email" placeholder="Enter email" id="auth-email" name="authEmail" autofocus required>
+              </div>
+              
+              <div class="form-field">
+                <label for="auth-password">Authorized Password <abbr title="required">*</abbr></label>
+                <input type="password" placeholder="Enter password" id="auth-password" name="authPassword" required>
+              </div>
+            </fieldset>
+            
+            <div class="form-field">
+              <button type="button" class="btn btn-default form-btn" name="loginFormBtn" disabled>
+                Log In
+              </button>
+              <!-- <input type="button" class="form-btn" name="loginFormBtn" value="Login"> -->
+            </div>
+      
+            <p>
+              Not yet a member?
+              <a href="login.html">Sign up for a Politico account</a>
+            </p>
+      
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer full-width">
+    <a href="javascript:void(0)" class="footer__logo">
+      <i class="fas fa-person-booth"></i>Politico
+    </a>
+    <small class="footer__text">&copy;2019 All rights reserved</small>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
