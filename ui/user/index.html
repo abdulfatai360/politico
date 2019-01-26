@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>User - Dashboard | Politico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../fonts/font-face-syntax.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/user-dashboard.css">
+</head>
+
+<body>
+
+  <header class="header full-width">
+    <!-- <div class="full-width"> -->
+    <div class="header__inner">
+      <a href="./index.html" class="header__logo curr-page">
+        <i class="fas fa-person-booth"></i>Politico
+      </a>
+  
+      <span class="header__menu icon bar-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+    </div>
+  
+    <nav class="nav">
+      <span class="header__menu icon close-icon">
+        <i class="fas fa-times"></i>
+      </span>
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="./cast-vote.html">Cast Vote</a>
+        </li>
+        <li class="nav__item">
+          <a href="./run-election.html">Run for Election</a>
+        </li>
+        <li class="nav__item">
+          <a href="./election-result.html">Election Result</a>
+        </li>
+        <li class="nav__item">
+          <a href="../index.html">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- </div> -->
+  </header>
+
+  <main class="main main-user-dashboard">
+    <section class="user-profile row-alt">
+      <div class="user-profile__inner container">
+        <div class="user-details lead">
+          <h1>John Doe</h1>
+          <p>john.doe@example.com</p>
+          <p>08012345678</p>
+          <p>User/Politician</p>
+          <p><span>Abuja, FCT</span></p>
+          <p><em>ID: </em><span>25/4</span></p>
+        </div>
+
+        <div class="user-passport">
+          <div class="user-passport__inner"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab Links Panel -->
+
+    <div class="tab-links-pane">
+      <ul class="tab-links-list container">
+        <li class="tab-links-list__item parties-list-tab">
+          List of Parties
+        </li>
+        <li class="tab-links-list__item votes-history-tab">
+          Votes History
+        </li>
+      </ul>
+    </div>
+
+    <!-- List of Parties Section -->
+
+    <section class="parties-list row">
+      <div class="parties-list__inner container">
+        <h2>List of Registered Parties <span></span></h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" class="id-th">ID</th>
+              <th scope="col" class="name-th">Party</th>
+              <th scope="col" class="acronym-th">Acronym</th>
+              <th scope="col" class="logo-th">Logo</th>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <tr>
+              <th scope="row" class="id">1</th>
+              <td class="name">Peoples Democratic Party</td>
+              <td class="acronym">PDP</td>
+              <td class="logo">
+                <img src="../img/pdp-logo.png" alt="" class="logo__inner">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="id">1</th>
+              <td class="name">Peoples Democratic Party</td>
+              <td class="acronym">PDP</td>
+              <td class="logo">
+                <img src="../img/pdp-logo.png" alt="" class="logo__inner">
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row" class="id">2</th>
+              <td class="name">Peoples Democratic Party</td>
+              <td class="acronym">PDP</td>
+              <td class="logo">
+                <img src="../img/pdp-logo.png" alt="" class="logo__inner">
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row" class="id">3</th>
+              <td class="name">Peoples Democratic Party</td>
+              <td class="acronym">PDP</td>
+              <td class="logo">
+                <img src="../img/pdp-logo.png" alt="" class="logo__inner">
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row" class="id">4</th>
+              <td class="name">Peoples Democratic Party</td>
+              <td class="acronym">PDP</td>
+              <td class="logo">
+                <img src="../img/pdp-logo.png" alt="" class="logo__inner">
+              </td>
+            </tr>
+
+            
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Votes History Section -->
+
+    <section class="votes-history row">
+      <div class="votes-history__inner container">
+        <h2 class="no-of-votes">Votes Cast (<span>6</span>)</h2>
+
+        <ul class="votes-list">
+
+          <li class="votes-list__item">
+            <div class="candidate-img">
+              <div class="candidate-img__inner"></div>
+            </div>
+            <div class="vote-other-info">
+              <h3 class="candidate-name">Jane Doe</h3>
+              <p class="office-type">Federal</p>
+              <p class="office-name">President</p>
+              <p class="party truncate-text">Peoples Democratic Party</p>
+              <p class="acronym">PDP</p>
+              <p class="date">20/01/2019</p>
+            </div>
+          </li>
+
+          <li class="votes-list__item">
+            <div class="candidate-img">
+              <div class="candidate-img__inner"></div>
+            </div>
+            <div class="vote-other-info">
+              <h3 class="candidate-name">Jane Doe</h3>
+              <p class="office-type">Federal</p>
+              <p class="office-name">President</p>
+              <p class="party truncate-text">Peoples Democratic Party</p>
+              <p class="acronym">PDP</p>
+              <p class="date">20/01/2019</p>
+            </div>
+          </li>
+          
+          <li class="votes-list__item">
+            <div class="candidate-img">
+              <div class="candidate-img__inner"></div>
+            </div>
+            <div class="vote-other-info">
+              <h3 class="candidate-name">Jane Doe</h3>
+              <p class="office-type">Federal</p>
+              <p class="office-name">President</p>
+              <p class="party truncate-text">Peoples Democratic Party</p>
+              <p class="acronym">PDP</p>
+              <p class="date">20/01/2019</p>
+            </div>
+          </li>
+
+          <li class="votes-list__item">
+            <div class="candidate-img">
+              <div class="candidate-img__inner"></div>
+            </div>
+            <div class="vote-other-info">
+              <h3 class="candidate-name">Jane Doe</h3>
+              <p class="office-type">Federal</p>
+              <p class="office-name">President</p>
+              <p class="party truncate-text">Peoples Democratic Party</p>
+              <p class="acronym">PDP</p>
+              <p class="date">20/01/2019</p>
+            </div>
+          </li>
+
+          <li class="votes-list__item">
+            <div class="candidate-img">
+              <div class="candidate-img__inner"></div>
+            </div>
+            <div class="vote-other-info">
+              <h3 class="candidate-name">Jane Doe</h3>
+              <p class="office-type">Federal</p>
+              <p class="office-name">President</p>
+              <p class="party truncate-text">Peoples Democratic Party</p>
+              <p class="acronym">PDP</p>
+              <p class="date">20/01/2019</p>
+            </div>
+          </li>
+
+          <li class="votes-list__item">
+            <div class="candidate-img">
+              <div class="candidate-img__inner"></div>
+            </div>
+            <div class="vote-other-info">
+              <h3 class="candidate-name">Jane Doe</h3>
+              <p class="office-type">Federal</p>
+              <p class="office-name">President</p>
+              <p class="party truncate-text">Peoples Democratic Party</p>
+              <p class="acronym">PDP</p>
+              <p class="date">20/01/2019</p>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer full-width">
+    <a href="javascript:void(0)" class="footer__logo">
+      <i class="fas fa-person-booth"></i>Politico
+    </a>
+    <small class="footer__text">&copy;2019 All rights reserved</small>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/user-dashboard.js"></script>
+</body>
+
+</html>
