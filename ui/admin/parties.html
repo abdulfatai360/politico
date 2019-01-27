@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin - View & Perfom Actions on Party | Politico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="../fonts/font-face-syntax.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/parties.css">
+</head>
+
+<body>
+  <header class="header full-width">
+    <!-- <div class="full-width"> -->
+    <div class="header__inner">
+      <a href="./index.html" class="header__logo">
+        <i class="fas fperson-booth"></i>Politico
+      </a>
+  
+      <span class="header__menu icon bar-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+    </div>
+  
+    <nav class="nav">
+      <span class="header__menu icon close-icon">
+        <i class="fas fa-times"></i>
+      </span>
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="./parties.html" class="curr-page">Political Parties</a>
+        </li>
+        <li class="nav__item">
+          <a href="./offices.html">Political Offices</a>
+        </li>
+        <li class="nav__item">
+          <a href="../index.html">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- </div> -->
+  </header>
+
+  <main class="main main-parties show-party-quick-view">
+
+    <section class="row-alt lead">
+      <div class="lead__inner container">
+        <h1>Political Parties Page</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam soluta ex illum illo explicabo nobis?</p>
+      </div>
+    </section>
+
+    <!-- Tab links section -->
+
+    <div class="tab-links-pane">
+      <ul class="tab-links__list container">
+        <li class="tab-links__item party-qv-tab">
+          Party Quick View
+        </li>
+        <li class="tab-links__item party-ce-tab">
+          Register Party
+        </li>
+      </ul>
+    </div>
+
+    <section class="party-quick-view row">
+      <div class="party-quick-view__inner container">
+    
+        <table class="party-quick-view__table">
+          <thead>
+            <tr>
+              <th scope="col" class="id-th">ID</th>
+              <th scope="col" class="name-th">Party's Name</th>
+              <th scope="col" class="acronym-th">Acronym</th>
+              <th scope="col" class="actions-th">Actions</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <script type="text/template" class="table-template">
+              <tr>
+                <th scope="row" class="id">{{id}}</th>
+                <td class="name link-alt">{{name}}</td>
+                <td class="acronym">{{acronym}}</td>
+                <td class="actions">
+                  <button type="button" class="edit-btn btn btn-cta">
+                    Edit
+                  </button>
+                  <button type="button" class="del-btn btn btn-cta">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </script>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="party-creation-edit row">
+      <div class="party-creation-edit__inner container">
+        <form class="party-ce-form" action="#">
+
+          <fieldset class="party-identity">
+            <div class="form-field">
+              <label for="party-name">Proposed Party Name <abbr title="required">*</abbr></label>
+              <input type="text" placeholder="Sample Party Congress" id="party-name" name="partyName">
+            </div>
+            
+            <div class="form-field">
+              <label for="party-acronym">Acronym of the Proposed Party <abbr title="required">*</abbr></label>
+              <input type="text" placeholder="SPC" id="party-acronym">
+            </div>
+            
+            <div class="form-field">
+              <label for="party-logo-url">Party Logo URL</label>
+              <input type="text" placeholder="http://domain.com/logo-path/logo" id="party-logo-url">
+            </div>
+          </fieldset>
+  
+          <fieldset class="party-location">
+            <div class="form-field">
+              <label for="hq-address">Head Office Address</label>
+              <input type="text" placeholder="00, Sample Street, Sample Town" id="hq-address">
+            </div>
+            
+            <div class="form-field">
+              <label for="hq-city">City</label>
+              <input type="text" placeholder="Sample City" id="hq-city">
+            </div>
+            
+            <div class="form-field">
+              <label for="hq-state">State</label>
+              <input type="text" placeholder="Sample State" id="hq-state">
+            </div>
+          </fieldset>
+
+          <button type="button" class="btn btn-default form-btn">
+            Register Party
+          </button>
+  
+        </form>
+      </div>
+    </section>
+    
+    <section class="party-full-view">
+      <div class="overlay"></div>
+    
+      <div class="party-full-view__inner">
+        <div class="party-detail">
+          <i class="fas fa-times party-detail__close-icon"></i>
+    
+          <div class="party-detail__logo"></div>
+    
+          <div class="party-detail__content">
+            <script type="text/template" class="party-detail__template">
+              <h2 class="name">
+                {{name}} (<span class="acronym">{{acronym}}</span>)
+              </h2>
+              <p class="address">{{hqAddress}}</p>
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <footer class="footer full-width">
+    <a href="javascript:void(0)" class="footer__logo">
+      <i class="fas fperson-booth"></i>Politico
+    </a>
+    <small class="footer__text">&copy;2019 All rights reserved</small>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/parties.js"></script>
+</body>
+
+</html>
