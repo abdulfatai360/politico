@@ -1,0 +1,196 @@
+
+/* General page styles */
+
+.main-parties {
+  min-height: 88%;
+  font-size: 1em;
+}
+
+/* Styles for tab links pane */
+
+.tab-links-pane {
+  border-top: 4px solid #293f50;
+  border-bottom: 4px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+.tab-links__list {
+  display: flex;
+}
+
+.tab-links__item {
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: all 0.5s ease;
+}
+
+.tab-links__item:hover {
+  color: #293f50;
+  background-color: #fff;
+}
+
+.show-office-view .office-view-tab,
+.show-office-creation-edit .office-ce-tab {
+  color: #293f50;
+  background-color: #fff;
+}
+
+/* Style rules for switching tabs */
+
+.office-view,
+.office-creation-edit {
+  display: none;
+}
+
+.show-office-view .office-view,
+.show-office-creation-edit .office-creation-edit{
+  display: block;
+}
+
+/* Styles for Party Quick View section */
+
+.office-view {
+  font-size: 1em;
+}
+
+table {
+	width: 100%;
+  font-size: 0.9em;
+}
+
+.office-view .id,
+.office-view .id-th {
+  width: 10%;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+.office-view .type,
+.office-view .type-th {
+  width: 25%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.office-view .name,
+.office-view .name-th {
+  width: 25%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.office-view .actions,
+.office-view .actions-th {
+  width: 25%;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+th,
+td {
+	padding-bottom: 10px;
+	vertical-align: top;
+}
+
+th,
+tbody th {
+	text-align: left;
+  font-weight: 400;
+}
+
+thead th{
+	color: #648880;
+}
+
+tbody th{
+	color: #a9b2b9;
+}
+
+tbody th,
+tbody td {
+	padding-top: 10px;
+	border-top: 1px solid #dfe2e5;
+}
+
+.edit-btn {
+  margin-bottom: 10px;
+}
+
+.edit-btn,
+.del-btn {
+  padding: 0 3px;
+  font-size: 1.7em;
+}
+
+/* Styles for Office Creation/edit form */
+
+.office-creation-edit {
+  font-size: 1em;
+}
+
+.office-ce-form {
+  border: 2px solid;
+  border-radius: 5px;
+  margin-bottom: 22px;
+  padding: 20px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.form-field {
+  margin-bottom: 27px;
+}
+
+label {
+  cursor: pointer;
+  color: #648880;
+	cursor: pointer;
+	font-weight: 400;
+}
+
+input[type="text"] {
+  font-weight: 300;
+  width: 100%;
+  border: none;
+  padding: 5px;
+  background: transparent;
+  border-bottom: 1px solid #c6c9cc;
+}
+
+input[type="text"]:focus {
+  border-bottom: 1px solid #316396;
+}
+
+input::placeholder {
+  font-weight: 300;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+.form-btn {
+  font-size: 1.7em;
+}
+
+/* Responsive styles */
+
+@media (min-width: 691px) {
+
+  .tab-links-list__item {
+    padding: 10px 25px;
+  }
+
+  table {
+    font-size: 1em;
+  }
+
+  .edit-btn {
+    margin-bottom: 10px;
+  }
+
+  .edit-btn,
+  .del-btn {
+    padding: 0 20px;
+  }
+}

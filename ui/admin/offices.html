@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin - Political Office View | Politico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../fonts/font-face-syntax.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/offices.css">
+</head>
+
+<body>
+  <header class="header full-width">
+    <!-- <div class="full-width"> -->
+    <div class="header__inner">
+      <a href="./index.html" class="header__logo">
+        <i class="fas fa-person-booth"></i>Politico
+      </a>
+
+      <span class="header__menu icon bar-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+    </div>
+
+    <nav class="nav">
+      <span class="header__menu icon close-icon">
+        <i class="fas fa-times"></i>
+      </span>
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="./parties.html">Political Parties</a>
+        </li>
+        <li class="nav__item">
+          <a href="./offices.html" class="curr-page">Political Offices</a>
+        </li>
+        <li class="nav__item">
+          <a href="../index.html">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- </div> -->
+  </header>
+
+  <main class="main main-offices show-office-view">
+
+    <section class="row-alt lead">
+      <div class="lead__inner container">
+        <h1>Political Offices Page</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam soluta ex illum illo explicabo nobis?</p>
+      </div>
+    </section>
+
+    <!-- Tab links section -->
+
+    <div class="tab-links-pane">
+      <ul class="tab-links__list container">
+        <li class="tab-links__item office-view-tab">
+          View Offices
+        </li>
+        <li class="tab-links__item office-ce-tab">
+          Create Office
+        </li>
+      </ul>
+    </div>
+
+    <section class="office-view row">
+      <div class="office-view__inner container">
+
+        <table class="office-view__table">
+          <thead>
+            <tr>
+              <th scope="col" class="id-th">ID</th>
+              <th scope="col" class="type-th">Office Type</th>
+              <th scope="col" class="name-th">Office Name</th>
+              <th scope="col" class="actions-th">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <th scope="row" class="id">1</th>
+              <td class="type">Federal</td>
+              <td class="name">Executive President</td>
+              <td class="actions">
+                <button type="button" class="edit-btn btn btn-cta">
+                  Edit
+                </button>
+                <button type="button" class="del-btn btn btn-cta">
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row" class="id">2</th>
+              <td class="type">Legislative</td>
+              <td class="name">Senate</td>
+              <td class="actions">
+                <button type="button" class="edit-btn btn btn-cta">
+                  Edit
+                </button>
+                <button type="button" class="del-btn btn btn-cta">
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row" class="id">3</th>
+              <td class="type">Legislative</td>
+              <td class="name">House of Representative</td>
+              <td class="actions">
+                <button type="button" class="edit-btn btn btn-cta">
+                  Edit
+                </button>
+                <button type="button" class="del-btn btn btn-cta">
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row" class="id">4</th>
+              <td class="type">State</td>
+              <td class="name">Executive Governor</td>
+              <td class="actions">
+                <button type="button" class="edit-btn btn btn-cta">
+                  Edit
+                </button>
+                <button type="button" class="del-btn btn btn-cta">
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row" class="id">5</th>
+              <td class="type">Local Government</td>
+              <td class="name">Council Chairman</td>
+              <td class="actions">
+                <button type="button" class="edit-btn btn btn-cta">
+                  Edit
+                </button>
+                <button type="button" class="del-btn btn btn-cta">
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="office-creation-edit row">
+      <div class="office-creation-edit__inner container">
+        <form class="office-ce-form" action="#">
+
+          <fieldset class="office-info">
+            <div class="form-field">
+              <label for="office-type">Office Type <abbr title="required">*</abbr></label>
+              <input type="text" placeholder="office type" id="office-type">
+            </div>
+
+            <div class="form-field">
+              <label for="office-name">Office Name <abbr title="required">*</abbr></label>
+              <input type="text" placeholder="office name" id="office-name">
+            </div>
+          </fieldset>
+
+          <button type="button" class="btn btn-default form-btn">
+            Create Office
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer full-width">
+    <a href="javascript:void(0)" class="footer__logo">
+      <i class="fas fa-person-booth"></i>Politico
+    </a>
+    <small class="footer__text">&copy;2019 All rights reserved</small>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/offices.js"></script>
+</body>
+
+</html>
+
+<!-- <script type="text/template" class="table-template">
+              <tr>
+                <th scope="row" class="id">{{id}}</th>
+                <td class="name link-alt">{{name}}</td>
+                <td class="acronym">{{acronym}}</td>
+                <td class="actions">
+                  <button type="button" class="edit-btn btn btn-cta">
+                    Edit
+                  </button>
+                  <button type="button" class="del-btn btn btn-cta">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </script> -->
