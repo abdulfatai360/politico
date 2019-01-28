@@ -1,0 +1,270 @@
+
+/* General page styles */
+
+.main-parties {
+  min-height: 88%;
+  font-size: 1em;
+}
+
+/* Styles for tab links pane */
+
+.tab-links-pane {
+  border-top: 4px solid #293f50;
+  border-bottom: 4px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+.tab-links__list {
+  display: flex;
+}
+
+.tab-links__item {
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: all 0.5s ease;
+}
+
+.tab-links__item:hover {
+  color: #293f50;
+  background-color: #fff;
+}
+
+.show-party-quick-view .party-qv-tab,
+.show-party-creation-edit .party-ce-tab {
+  color: #293f50;
+  background-color: #fff;
+}
+
+/* Style rules for switching tabs */
+
+.party-quick-view,
+.party-creation-edit {
+  display: none;
+}
+
+.show-party-quick-view .party-quick-view,
+.show-party-creation-edit .party-creation-edit{
+  display: block;
+}
+
+/* Styles for Party Quick View section */
+
+.party-quick-view {
+  font-size: 1em;
+}
+
+table {
+	width: 100%;
+  font-size: 0.9em;
+}
+
+.party-quick-view .id,
+.party-quick-view .id-th {
+  width: 10%;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+.party-quick-view .name,
+.party-quick-view .name-th {
+  width: 35%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.party-quick-view .acronym,
+.party-quick-view .acronym-th {
+  width: 15%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.party-quick-view .actions,
+.party-quick-view .actions-th {
+  width: 25%;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+th,
+td {
+	padding-bottom: 10px;
+	vertical-align: top;
+}
+
+th,
+tbody th {
+	text-align: left;
+  font-weight: 400;
+}
+
+thead th{
+	color: #648880;
+}
+
+tbody th{
+	color: #a9b2b9;
+}
+
+tbody th,
+tbody td {
+	padding-top: 10px;
+	border-top: 1px solid #dfe2e5;
+}
+
+.party-quick-view__table .name {
+  cursor: pointer;
+}
+
+.edit-btn {
+  margin-bottom: 10px;
+}
+
+.edit-btn,
+.del-btn {
+  padding: 0 3px;
+  font-size: 1.7em;
+}
+
+/* Styles for Party Creation/edit form */
+
+.party-creation-edit {
+  font-size: 1em;
+}
+
+.party-ce-form {
+  border: 2px solid;
+  border-radius: 5px;
+  margin-bottom: 22px;
+  padding: 20px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.form-field {
+  margin-bottom: 27px;
+}
+
+label {
+  cursor: pointer;
+  color: #648880;
+	cursor: pointer;
+	font-weight: 400;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  font-weight: 300;
+  width: 100%;
+  border: none;
+  padding: 5px;
+  background: transparent;
+  border-bottom: 1px solid #c6c9cc;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus {
+  border-bottom: 1px solid #316396;
+}
+
+input::placeholder {
+  font-weight: 300;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+.form-btn {
+  font-size: 1.7em;
+}
+
+/* Styles for party full view section */
+
+.party-full-view {
+  display: none;
+  color: #000;
+}
+
+.show-party-full-view .party-full-view {
+  display: block;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.party-full-view__inner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  width: 90%;
+  max-width: 500px;
+  padding: 0.67em;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.party-detail {
+  position: relative;
+  margin: 0 auto;
+  padding: 5px;
+  border: 2px solid #271557;
+}
+
+.party-detail__close-icon {
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-size: 1.3em;
+  text-align: center;
+  color: #fff;
+  background-color: #271557;
+  border-left: 2px solid #271557;
+  border-bottom: 2px solid #271557;
+  transition: 0.5s color ease;
+}
+
+.party-detail__close-icon:hover,
+.party-detail__close-icon:hover {
+  color: #99bad3;
+}
+
+.party-detail__logo {
+  height: 200px;
+  width: 100%;
+}
+
+/* Responsive styles */
+
+@media (min-width: 691px) {
+
+  .tab-links-list__item {
+    padding: 10px 25px;
+  }
+
+  table {
+    font-size: 1em;
+  }
+
+  .edit-btn {
+    margin-bottom: 10px;
+  }
+
+  .edit-btn,
+  .del-btn {
+    padding: 0 20px;
+  }
+}
