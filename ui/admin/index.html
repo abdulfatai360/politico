@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin - Dashboard | Politico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="../fonts/font-face-syntax.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/admin-dashboard.css">
+</head>
+
+<body>
+  <header class="header full-width">
+    <!-- <div class="full-width"> -->
+    <div class="header__inner">
+      <a href="./index.html" class="header__logo curr-page">
+        <i class="fas fa-person-booth"></i>Politico
+      </a>
+  
+      <span class="header__menu icon bar-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+    </div>
+  
+    <nav class="nav">
+      <span class="header__menu icon close-icon">
+        <i class="fas fa-times"></i>
+      </span>
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="./parties.html">Political Parties</a>
+        </li>
+        <li class="nav__item">
+          <a href="./offices.html">Political Offices</a>
+        </li>
+        <li class="nav__item">
+          <a href="../index.html">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- </div> -->
+  </header>
+
+  <main class="main main-admin-dashboard">
+    <section class="admin-profile row-alt">
+      <div class="admin-profile__inner container">
+        <div class="admin-details lead">
+          <h1>Jane Doe</h1>
+          <p>jane.doe@example.com</p>
+          <p>08012345678</p>
+          <p>Admin</p>
+          <p><span>Ikorodu, Lagos</span></p>
+          <p><em>Admin ID: </em><span>00025</span></p>
+        </div>
+
+        <div class="admin-passport">
+          <div class="admin-passport__inner"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="election-statistics row">
+      <div class="election-statistics__inner container">
+        <h2>Election Statistics</h2>
+        
+        <table class="election-statistics__table">
+
+          <thead>
+            <tr>
+              <th scope="col">Key</th>
+              <th scope="col" colspan="3">Value</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">No of Users</th>
+              <td colspan="3" class="no-of-users">33</td>
+            </tr>
+        
+            <tr>
+              <th scope="row">% by Gender</th>
+              <td class="male-percent">40% Male</td>
+              <td class="female-percent">40% Female</td>
+              <td class="other-percent">20% Other</td>
+            </tr>
+        
+            <tr>
+              <th scope="row">No of Parties</th>
+              <td colspan="3" class="no-of-parties">10</td>
+            </tr>
+
+            <tr>
+              <th scope="row">No of Offices</th>
+              <td colspan="3" class="no-of-offices">20</td>
+            </tr>
+
+            <tr>
+              <th scope="row">No of Candidates</th>
+              <td colspan="3" class="no-of-candidates">20</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer full-width">
+    <a href="javascript:void(0)" class="footer__logo">
+      <i class="fas fa-person-booth"></i>Politico
+    </a>
+    <small class="footer__text">&copy;2019 All rights reserved</small>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+
+</html>
