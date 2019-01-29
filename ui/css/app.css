@@ -169,7 +169,7 @@ p a {
 .btn-default {
 	border: 0;
 	background: #5c8b81;
-	padding: 9px 25px;
+	padding: 6px 20px;
 }
 
 .btn-default:hover {
@@ -180,12 +180,17 @@ p a {
   color: #271557;
   background-color: #99bad3;
 	border: 1px solid;
-	padding: 9px 25px;
+	padding: 6px 20px;
 }
 
 .btn-cta:hover{
   background-color: #271557;
   color: #99bad3;
+}
+
+.form-btn {
+  font-size: 1.7em;
+  width: 100%;
 }
 
 /* Form general styles */

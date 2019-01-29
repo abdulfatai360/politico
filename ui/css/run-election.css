@@ -112,7 +112,3 @@ textarea {
 textarea:focus {
   border-color: #316396;
 }
-
-.form-btn {
-  font-size: 1.5em;
-}
