@@ -1,0 +1,27 @@
+{
+    "plugins": [
+      "mocha"
+    ],
+    "env": {
+      "mocha": true
+    },
+    "extends": "airbnb-base",
+    "rules": {
+      "linebreak-style": [
+        "error",
+        "windows"
+      ],
+      "no-console": [
+        "off"
+      ],
+      "mocha/no-exclusive-tests": [
+        "error"
+      ],
+      "no-unused-vars": [
+        "error",
+        {
+          "varsIgnorePattern": "should|expect"
+        }
+      ]
+    }
+}
