@@ -1,10 +1,9 @@
-const express = require('express');
-const partyDb = require('./models/party');
+import express from 'express';
+import partyDb from './models/party';
 
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3000;
-
 
 /* **** POST /api/v1/parties endpoint **** */
 
@@ -112,4 +111,4 @@ app.listen(port, () => {
   console.log(`Server is ready at port ${port}`);
 });
 
-module.exports = app;
+export default app;

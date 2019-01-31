@@ -59,4 +59,4 @@ class Party {
   }
 }
 
-module.exports = new Party();
+export default new Party();
