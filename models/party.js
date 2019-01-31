@@ -39,13 +39,7 @@ class Party {
   }
 
   getAll() {
-    const parties = this.list;
-    return parties;
-    // const filter = parties.map((party) => {
-    //   const { id, name, logoUrl } = party;
-    //   return { id, name, logoUrl };
-    // });
-    // return filter;
+    return this.list;
   }
 
   patch(id, prop) {

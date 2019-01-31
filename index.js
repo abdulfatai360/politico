@@ -89,6 +89,24 @@ app.get('/api/v1/parties/:id', (req, res) => {
   });
 });
 
+/* **** GET /api/v1/parties endpoint **** */
+
+app.get('/api/v1/parties', (req, res) => {
+  if (!partyDb.getAll().length) {
+    return res.status(404).json({
+      status: 404,
+      error: 'No party in the Database',
+    });
+  }
+
+  const filter = partyDb.getAll()
+    .map(({ id, name, logoUrl }) => ({ id, name, logoUrl }));
+
+  return res.status(200).json({
+    status: 200,
+    data: filter,
+  });
+});
 
 app.listen(port, () => {
   console.log(`Server is ready at port ${port}`);
