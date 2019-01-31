@@ -52,10 +52,6 @@ input::placeholder {
   letter-spacing: 0.5px;
 }
 
-.form-btn {
-  font-size: 1.5em;
-}
-
 /* Responsive style rules */
 @media (min-width: 700px) {
   .img-plus-form-container {
