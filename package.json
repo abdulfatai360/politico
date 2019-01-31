@@ -4,7 +4,8 @@
   "description": "A web based election platform",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --colors --timeout 2000 --exit",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -17,9 +18,16 @@
   },
   "homepage": "https://github.com/abdulfatai360/politico#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
     "eslint": "^5.12.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-mocha": "^5.2.1"
+    "eslint-plugin-mocha": "^5.2.1",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
   }
 }
