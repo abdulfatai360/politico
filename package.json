@@ -4,10 +4,8 @@
   "description": "A web based election platform",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --colors --exit --require @babel/register",
-    "start": "nodemon ./dist/index.js",
-    "build": "babel src --watch --out-dir dist --source-maps"
-
+    "test": "mocha --colors --timeout 2000 --exit",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -20,10 +18,6 @@
   },
   "homepage": "https://github.com/abdulfatai360/politico#readme",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/register": "^7.0.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "eslint": "^5.12.1",

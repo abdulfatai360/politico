@@ -1,7 +1,7 @@
-import chai from 'chai';
-import chaiHttp from 'chai-http';
-import server from '../src/index';
-import partyDb from '../src/models/party';
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const server = require('../index');
+const partyDb = require('../models/party');
 
 const { expect } = chai;
 chai.use(chaiHttp);
