@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/abdulfatai360/politico/issues"
   },
-  "homepage": "https://github.com/abdulfatai360/politico#readme"
+  "homepage": "https://github.com/abdulfatai360/politico#readme",
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-mocha": "^5.2.1"
+  }
 }
