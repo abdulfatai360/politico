@@ -60,6 +60,35 @@ app.post('/api/v1/parties', (req, res) => {
   });
 });
 
+/* **** GET /api/v1/parties/<party-id> endpoint **** */
+
+app.get('/api/v1/parties/:id', (req, res) => {
+  let { id } = req.params;
+  id = Number(id);
+
+  if (Number.isNaN(id)) {
+    return res.status(422).json({
+      status: 422,
+      error: 'Party ID is invalid',
+    });
+  }
+
+  const party = partyDb.getOne(id);
+
+  if (!party) {
+    return res.status(404).json({
+      status: 404,
+      error: 'Party not found',
+    });
+  }
+
+  const { name, logoUrl } = party;
+  return res.status(200).json({
+    status: 200,
+    data: [{ id, name, logoUrl }],
+  });
+});
+
 
 app.listen(port, () => {
   console.log(`Server is ready at port ${port}`);

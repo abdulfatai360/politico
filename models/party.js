@@ -1,7 +1,7 @@
 
 const generateId = (() => {
-  let id = 0;
-  return function x() {
+  let id = 2;
+  return () => {
     id += 1;
     return id;
   };
@@ -9,7 +9,20 @@ const generateId = (() => {
 
 class Party {
   constructor() {
-    this.list = [];
+    this.list = [
+      {
+        id: 1,
+        name: 'Party One',
+        hqAddress: 'Berger, Lagos, Nigeria',
+        logoUrl: 'http://exampleone.com',
+      },
+      {
+        id: 2,
+        name: 'Party Two',
+        hqAddress: 'Ojota, Lagos, Nigeria',
+        logoUrl: 'http://exampletwo.com',
+      },
+    ];
   }
 
   post(entry) {
@@ -22,18 +35,17 @@ class Party {
   }
 
   getOne(id) {
-    const party = this.list.find(elem => elem.id === id);
-    const { name, logoUrl } = party;
-    return { id, name, logoUrl };
+    return this.list.find(elem => elem.id === id);
   }
 
   getAll() {
     const parties = this.list;
-    const filter = parties.map((party) => {
-      const { id, name, logoUrl } = party;
-      return { id, name, logoUrl };
-    });
-    return filter;
+    return parties;
+    // const filter = parties.map((party) => {
+    //   const { id, name, logoUrl } = party;
+    //   return { id, name, logoUrl };
+    // });
+    // return filter;
   }
 
   patch(id, prop) {
