@@ -80,8 +80,8 @@ function () {
       });
     }
   }, {
-    key: "getOne",
-    value: function getOne(req, res) {
+    key: "getParty",
+    value: function getParty(req, res) {
       var id = req.params.id;
       id = Number(id);
 
@@ -113,8 +113,8 @@ function () {
       });
     }
   }, {
-    key: "getAll",
-    value: function getAll(req, res) {
+    key: "getAllParties",
+    value: function getAllParties(req, res) {
       if (!_party.default.findAll().length) {
         return res.status(404).json({
           status: 404,
@@ -139,8 +139,8 @@ function () {
       });
     }
   }, {
-    key: "patch",
-    value: function patch(req, res) {
+    key: "updatePartyName",
+    value: function updatePartyName(req, res) {
       if (!req.body.name) {
         return res.status(400).json({
           status: 400,
@@ -205,8 +205,8 @@ function () {
       });
     }
   }, {
-    key: "delete",
-    value: function _delete(req, res) {
+    key: "deleteParty",
+    value: function deleteParty(req, res) {
       var id = req.params.id;
       id = Number(id);
 

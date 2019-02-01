@@ -16,10 +16,10 @@ var app = (0, _express.default)();
 var router = _express.default.Router();
 
 router.post('/', _party.default.post);
-router.get('/:id', _party.default.getOne);
-router.get('/', _party.default.getAll);
-router.patch('/:id/:name', _party.default.patch);
-router.delete('/:id', _party.default.delete);
+router.get('/:id', _party.default.getParty);
+router.get('/', _party.default.getAllParties);
+router.patch('/:id/:name', _party.default.updatePartyName);
+router.delete('/:id', _party.default.deleteParty);
 app.use('/api/v1/parties', router);
 var _default = app;
 exports.default = _default;
