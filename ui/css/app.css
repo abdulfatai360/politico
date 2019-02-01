@@ -193,6 +193,22 @@ p a {
   width: 100%;
 }
 
+.edit-btn,
+.del-btn {
+  padding: 0 3px;
+  font-size: 1.7em;
+  color: #fff;
+  background-color: #293f50;
+}
+
+.edit-btn {
+  margin-bottom: 10px;
+}
+
+.del-btn {
+  background-color: #dd2C00;
+}
+
 /* Form general styles */
 
 button[disabled],

@@ -20,7 +20,3 @@ function toggleTab(e) {
 tabLinks.forEach(tabLink => {
   tabLink.addEventListener('click', toggleTab);
 });
-
-// On window load
-userDashboard.classList.add('show-parties-list');
-

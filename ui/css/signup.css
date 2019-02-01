@@ -27,6 +27,18 @@
   margin: 0 auto;
 }
 
+.signup-form p {
+  color: #648880;
+  margin-bottom: 0.3em;
+  font-weight: 400;
+}
+
+p abbr {
+  text-decoration: none;
+  color: #dd2C00;
+  font-size: 1.5em;
+}
+
 .form-field {
   margin-bottom: 27px;
 }
