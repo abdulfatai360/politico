@@ -1,6 +1,6 @@
 
 const generateId = (() => {
-  let id = 2;
+  let id = 7;
   return () => {
     id += 1;
     return id;
@@ -22,10 +22,40 @@ class Party {
         hqAddress: 'Ojota, Lagos, Nigeria',
         logoUrl: 'http://exampletwo.com',
       },
+      {
+        id: 3,
+        name: 'Party Three',
+        hqAddress: 'Ojota, Lagos, Nigeria',
+        logoUrl: 'http://exampleThree.com',
+      },
+      {
+        id: 4,
+        name: 'Party Four',
+        hqAddress: 'Ojota, Lagos, Nigeria',
+        logoUrl: 'http://exampleFour.com',
+      },
+      {
+        id: 5,
+        name: 'Party Five',
+        hqAddress: 'Ojota, Lagos, Nigeria',
+        logoUrl: 'http://exampleFive.com',
+      },
+      {
+        id: 6,
+        name: 'Party Six',
+        hqAddress: 'Ojota, Lagos, Nigeria',
+        logoUrl: 'http://exampleSix.com',
+      },
+      {
+        id: 7,
+        name: 'Party Seven',
+        hqAddress: 'Ojota, Lagos, Nigeria',
+        logoUrl: 'http://exampleSeven.com',
+      },
     ];
   }
 
-  post(entry) {
+  create(entry) {
     const { name, hqAddress, logoUrl } = entry;
     const id = generateId();
     this.list.push({
@@ -34,15 +64,15 @@ class Party {
     return { id, name };
   }
 
-  getOne(id) {
+  findOne(id) {
     return this.list.find(elem => elem.id === id);
   }
 
-  getAll() {
+  findAll() {
     return this.list;
   }
 
-  patch(id, prop) {
+  update(id, prop) {
     const party = this.list.find(elem => elem.id === id);
     const i = this.list.indexOf(party);
 
