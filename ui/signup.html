@@ -68,6 +68,18 @@
               <label for="other-name">Other Name</label>
               <input type="text" placeholder="Alex" id="other-name">
             </div>
+
+            <div class="form-field">
+              <p>Select Gender <abbr title="required">*</abbr></p>
+              <input type="radio" id="male" name="gender" value="male">
+              <label for="male">Male</label>
+            
+              <input type="radio" id="female" name="gender" value="female">
+              <label for="female">Female</label>
+            
+              <input type="radio" id="other" name="gender" value="other">
+              <label for="other">Other</label>
+            </div>
             
             <div class="form-field">
               <label for="phone">Phone Number <abbr title="required">*</abbr></label>
@@ -76,7 +88,7 @@
 
             <div class="form-field">
               <label for="passport">Passport URL <abbr title="required">*</abbr></label>
-              <input type="text" placeholder="http://domain.com/image-path/image" id="passport" required>
+              <input type="file" name="" id="passport" required>
             </div>
           </fieldset>
           

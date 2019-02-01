@@ -114,16 +114,6 @@ tbody td {
 	border-top: 1px solid #dfe2e5;
 }
 
-.edit-btn {
-  margin-bottom: 10px;
-}
-
-.edit-btn,
-.del-btn {
-  padding: 0 3px;
-  font-size: 1.7em;
-}
-
 /* Styles for Office Creation/edit form */
 
 .office-creation-edit {

@@ -38,6 +38,3 @@ function toggleTab(e) {
 tabLinks.forEach(tabLink => {
   tabLink.addEventListener('click', toggleTab);
 });
-
-// On window load
-electionResult.classList.add('show-federal-result');

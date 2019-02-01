@@ -39,9 +39,6 @@ tabLinks.forEach(tabLink => {
   tabLink.addEventListener('click', toggleTab);
 });
 
-// On window load
-ballot.classList.add('show-federal-ballot');
-
 // Voting core logic
 function getRadioBtnsAndForm(officeName) {
   const form = document.querySelector(

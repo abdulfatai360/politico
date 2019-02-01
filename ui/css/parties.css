@@ -118,16 +118,6 @@ tbody td {
   cursor: pointer;
 }
 
-.edit-btn {
-  margin-bottom: 10px;
-}
-
-.edit-btn,
-.del-btn {
-  padding: 0 3px;
-  font-size: 1.7em;
-}
-
 /* Styles for Party Creation/edit form */
 
 .party-creation-edit {
