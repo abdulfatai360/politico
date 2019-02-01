@@ -53,7 +53,7 @@ class Party {
     });
   }
 
-  static getOne(req, res) {
+  static getParty(req, res) {
     let { id } = req.params;
     id = Number(id);
 
@@ -80,7 +80,7 @@ class Party {
     });
   }
 
-  static getAll(req, res) {
+  static getAllParties(req, res) {
     if (!partyDb.findAll().length) {
       return res.status(404).json({
         status: 404,
@@ -97,7 +97,7 @@ class Party {
     });
   }
 
-  static patch(req, res) {
+  static updatePartyName(req, res) {
     if (!req.body.name) {
       return res.status(400).json({
         status: 400,
@@ -162,7 +162,7 @@ class Party {
     });
   }
 
-  static delete(req, res) {
+  static deleteParty(req, res) {
     let { id } = req.params;
     id = Number(id);
 
