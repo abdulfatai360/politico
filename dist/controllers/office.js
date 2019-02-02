@@ -64,6 +64,50 @@ function () {
         data: [office]
       });
     }
+  }, {
+    key: "getOffice",
+    value: function getOffice(req, res) {
+      var id = req.params.id;
+      id = Number(id);
+
+      if (Number.isNaN(id)) {
+        return res.status(422).json({
+          status: 422,
+          error: 'Office ID is invalid'
+        });
+      }
+
+      var office = _office.default.findOne(id);
+
+      if (!office) {
+        return res.status(404).json({
+          status: 404,
+          error: 'Office not found'
+        });
+      }
+
+      return res.status(200).json({
+        status: 200,
+        data: [office]
+      });
+    }
+  }, {
+    key: "getAllOffices",
+    value: function getAllOffices(req, res) {
+      var officeList = _office.default.findAll();
+
+      if (!officeList) {
+        return res.status(404).json({
+          status: 404,
+          error: 'No office in the Database'
+        });
+      }
+
+      return res.status(200).json({
+        status: 200,
+        data: officeList
+      });
+    }
   }]);
 
   return Office;

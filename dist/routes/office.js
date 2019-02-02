@@ -14,6 +14,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var router = _express.default.Router();
 
 router.post('/', _office.default.post);
+router.get('/:id', _office.default.getOffice);
+router.get('/', _office.default.getAllOffices);
 var _default = router;
 exports.default = _default;
 //# sourceMappingURL=office.js.map

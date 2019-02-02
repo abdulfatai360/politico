@@ -15,9 +15,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express.default)();
 app.use(_express.default.json());
-var port = process.env.PORT || 3000;
 app.use('/api/v1/parties', _party.default);
 app.use('/api/v1/offices', _office.default);
+app.all('/*', function (req, res) {
+  res.status(404).json({
+    status: 404,
+    error: 'Invalid request'
+  });
+});
+var port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log("Server is ready at port ".concat(port));
 });
