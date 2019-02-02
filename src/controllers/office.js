@@ -38,6 +38,32 @@ class Office {
       data: [office],
     });
   }
+
+  static getOffice(req, res) {
+    let { id } = req.params;
+    id = Number(id);
+
+    if (Number.isNaN(id)) {
+      return res.status(422).json({
+        status: 422,
+        error: 'Office ID is invalid',
+      });
+    }
+
+    const office = officeDb.findOne(id);
+
+    if (!office) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Office not found',
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      data: [office],
+    });
+  }
 }
 
 export default Office;
