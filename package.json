@@ -4,7 +4,7 @@
   "description": "A web based election platform",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --watch --out-dir dist --source-maps",
+    "build": "babel src --out-dir dist --source-maps",
     "start": "nodemon ./dist/index.js",
     "test": "nyc --reporter=html --reporter=text mocha --colors --exit --require @babel/register",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -37,5 +37,8 @@
   },
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
