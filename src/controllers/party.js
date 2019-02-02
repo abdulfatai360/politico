@@ -46,6 +46,15 @@ class Party {
       });
     }
 
+    const allParties = partyDb.findAll();
+    const duplicate = allParties.find(elem => elem.name === name);
+    if (duplicate) {
+      return res.status(422).json({
+        status: 422,
+        error: 'Party name already exist',
+      });
+    }
+
     const party = partyDb.create(req.body);
     return res.status(201).json({
       status: 201,

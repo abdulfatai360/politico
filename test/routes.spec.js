@@ -630,3 +630,152 @@ describe('DELETE /api/v1/parties/<party-id>', () => {
     });
   });
 });
+
+/* ****** Feature: Create an office ******* */
+describe('POST /api/v1/offices', () => {
+  describe('On successful request/response cycle', () => {
+    it('should return status and data properties', (done) => {
+      chai.request(server)
+        .post('/api/v1/offices')
+        .send({
+          type: 'Federal',
+          name: 'President',
+        })
+        .end((err, res) => {
+          expect(res.body).to.have.all.keys('status', 'data');
+          return done();
+        });
+    });
+
+    it('should return status property of number type', (done) => {
+      chai.request(server)
+        .post('/api/v1/offices')
+        .send({
+          type: 'Federal',
+          name: 'President',
+        })
+        .end((err, res) => {
+          expect(res.body).to.have.ownProperty('status').that.is.a('number');
+          return done();
+        });
+    });
+
+    it('should return data property of array type', (done) => {
+      chai.request(server)
+        .post('/api/v1/offices')
+        .send({
+          type: 'Federal',
+          name: 'President',
+        })
+        .end((err, res) => {
+          expect(res.body).to.have.ownProperty('data').that.is.an('array');
+          return done();
+        });
+    });
+
+    it('should return correct status code', (done) => {
+      chai.request(server)
+        .post('/api/v1/offices')
+        .send({
+          type: 'Federal',
+          name: 'President',
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(201);
+          return done();
+        });
+    });
+
+    it('should return data of single element', (done) => {
+      chai.request(server)
+        .post('/api/v1/offices')
+        .send({
+          type: 'Federal',
+          name: 'President',
+        })
+        .end((err, res) => {
+          expect(res.body.data).to.have.lengthOf(1);
+          return done();
+        });
+    });
+
+    describe('Element of data property', () => {
+      it('should return id property of number type', (done) => {
+        chai.request(server)
+          .post('/api/v1/offices')
+          .send({
+            type: 'Federal',
+            name: 'President',
+          })
+          .end((err, res) => {
+            expect(res.body.data[0]).to.have.ownProperty('id').that.is.a('number');
+            return done();
+          });
+      });
+
+      it('should return name property of string type', (done) => {
+        chai.request(server)
+          .post('/api/v1/offices')
+          .send({
+            type: 'Federal',
+            name: 'President',
+          })
+          .end((err, res) => {
+            expect(res.body.data[0]).to.have.ownProperty('name').that.is.a('string');
+            return done();
+          });
+      });
+    });
+  });
+
+  describe('On failed request/response cycle', () => {
+    it('should return status and error properties', (done) => {
+      chai.request(server)
+        .post('/api/v1/offices')
+        .send({
+          type: 'Federal',
+        })
+        .end((err, res) => {
+          expect(res.body).to.have.all.keys('status', 'error');
+          return done();
+        });
+    });
+
+    it('should return status property of number type', (done) => {
+      chai.request(server)
+        .post('/api/v1/offices')
+        .send({
+          name: 'President',
+        })
+        .end((err, res) => {
+          expect(res.body).to.have.ownProperty('status').that.is.a('number');
+          return done();
+        });
+    });
+
+    it('should return correct status code for missing data', (done) => {
+      chai.request(server)
+        .post('/api/v1/offices')
+        .send({
+          type: 'Federal',
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          return done();
+        });
+    });
+
+    it('should return correct status code for invalid data', (done) => {
+      chai.request(server)
+        .post('/api/v1/offices')
+        .send({
+          name: ['John', 'Doe'],
+          type: 'Federal',
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(422);
+          return done();
+        });
+    });
+  });
+});

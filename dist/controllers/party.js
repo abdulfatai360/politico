@@ -72,6 +72,19 @@ function () {
         });
       }
 
+      var allParties = _party.default.findAll();
+
+      var duplicate = allParties.find(function (elem) {
+        return elem.name === name;
+      });
+
+      if (duplicate) {
+        return res.status(422).json({
+          status: 422,
+          error: 'Party name already exist'
+        });
+      }
+
       var party = _party.default.create(req.body);
 
       return res.status(201).json({
