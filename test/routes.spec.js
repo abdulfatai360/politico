@@ -2,6 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../src/index';
 import partyDb from '../src/models/party';
+import officeDb from '../src/models/office';
 
 const { expect } = chai;
 chai.use(chaiHttp);
@@ -891,6 +892,117 @@ describe('GET /api/v1/offices/<office-id>', () => {
         .get('/api/v1/offices/abc')
         .end((err, res) => {
           expect(res).to.have.status(422);
+          return done();
+        });
+    });
+  });
+});
+
+/* ****** Feature: Get all offices ******* */
+describe('GET /api/v1/offices', () => {
+  describe('On successful request/response cycle', () => {
+    before(function xyz() {
+      if (!officeDb.findAll().length) {
+        this.skip();
+      }
+    });
+
+    it('should return status and data properties', (done) => {
+      chai.request(server)
+        .get('/api/v1/offices')
+        .end((err, res) => {
+          expect(res.body).to.have.all.keys('status', 'data');
+          return done();
+        });
+    });
+
+    it('should return status property of number type', (done) => {
+      chai.request(server)
+        .get('/api/v1/offices')
+        .end((err, res) => {
+          expect(res.body).to.have.ownProperty('status').that.is.a('number');
+          return done();
+        });
+    });
+
+    it('should return data property of array type', (done) => {
+      chai.request(server)
+        .get('/api/v1/offices')
+        .end((err, res) => {
+          expect(res.body).to.have.ownProperty('data').that.is.an('array');
+          return done();
+        });
+    });
+
+    it('should return correct status code', (done) => {
+      chai.request(server)
+        .get('/api/v1/offices')
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          return done();
+        });
+    });
+
+    describe('Element of data property', () => {
+      it('should return id property of number type', (done) => {
+        chai.request(server)
+          .get('/api/v1/offices')
+          .end((err, res) => {
+            expect(res.body.data[0]).to.have.ownProperty('id').that.is.a('number');
+            return done();
+          });
+      });
+
+      it('should return name property of string type', (done) => {
+        chai.request(server)
+          .get('/api/v1/offices')
+          .end((err, res) => {
+            expect(res.body.data[0]).to.have.ownProperty('name').that.is.a('string');
+            return done();
+          });
+      });
+    });
+  });
+
+  describe('On failed request/response cycle', () => {
+    before(function xyz() {
+      if (officeDb.findAll().length) {
+        this.skip();
+      }
+    });
+
+    it('should return status and error properties', (done) => {
+      chai.request(server)
+        .get('/api/v1/offices/0')
+        .end((err, res) => {
+          expect(res.body).to.have.all.keys('status', 'error');
+          return done();
+        });
+    });
+
+    it('should return status property of number type', (done) => {
+      chai.request(server)
+        .get('/api/v1/offices')
+        .end((err, res) => {
+          expect(res.body).to.have.ownProperty('status').that.is.a('number');
+          return done();
+        });
+    });
+
+    it('should return error property of string type', (done) => {
+      chai.request(server)
+        .get('/api/v1/offices')
+        .end((err, res) => {
+          expect(res.body).to.have.ownProperty('error').that.is.a('string');
+          return done();
+        });
+    });
+
+    it('should return correct status code', (done) => {
+      chai.request(server)
+        .get('/api/v1/offices')
+        .end((err, res) => {
+          expect(res).to.have.status(404);
           return done();
         });
     });

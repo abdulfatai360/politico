@@ -64,6 +64,22 @@ class Office {
       data: [office],
     });
   }
+
+  static getAllOffices(req, res) {
+    const officeList = officeDb.findAll();
+
+    if (!officeList) {
+      return res.status(404).json({
+        status: 404,
+        error: 'No office in the Database',
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      data: officeList,
+    });
+  }
 }
 
 export default Office;
