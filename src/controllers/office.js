@@ -32,15 +32,6 @@ class Office {
       });
     }
 
-    const allOffices = officeDb.findAll();
-    const duplicate = allOffices.find(elem => elem.name === name);
-    if (duplicate) {
-      return res.status(422).json({
-        status: 422,
-        error: 'Office name already exist',
-      });
-    }
-
     const office = officeDb.create(req.body);
     return res.status(201).json({
       status: 201,

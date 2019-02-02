@@ -57,19 +57,6 @@ function () {
         });
       }
 
-      var allOffices = _office.default.findAll();
-
-      var duplicate = allOffices.find(function (elem) {
-        return elem.name === name;
-      });
-
-      if (duplicate) {
-        return res.status(422).json({
-          status: 422,
-          error: 'Office name already exist'
-        });
-      }
-
       var office = _office.default.create(req.body);
 
       return res.status(201).json({
