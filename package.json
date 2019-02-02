@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir dist --source-maps",
-    "start": "nodemon ./dist/index.js",
+    "start": "node ./dist/index.js",
     "test": "nyc --reporter=html --reporter=text mocha --colors --exit --require @babel/register",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
