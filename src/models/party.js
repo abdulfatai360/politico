@@ -1,6 +1,6 @@
 
 const generateId = (() => {
-  let id = 7;
+  let id = 2;
   return () => {
     id += 1;
     return id;
@@ -21,36 +21,6 @@ class Party {
         name: 'Party Two',
         hqAddress: 'Ojota, Lagos, Nigeria',
         logoUrl: 'http://exampletwo.com',
-      },
-      {
-        id: 3,
-        name: 'Party Three',
-        hqAddress: 'Ojota, Lagos, Nigeria',
-        logoUrl: 'http://exampleThree.com',
-      },
-      {
-        id: 4,
-        name: 'Party Four',
-        hqAddress: 'Ojota, Lagos, Nigeria',
-        logoUrl: 'http://exampleFour.com',
-      },
-      {
-        id: 5,
-        name: 'Party Five',
-        hqAddress: 'Ojota, Lagos, Nigeria',
-        logoUrl: 'http://exampleFive.com',
-      },
-      {
-        id: 6,
-        name: 'Party Six',
-        hqAddress: 'Ojota, Lagos, Nigeria',
-        logoUrl: 'http://exampleSix.com',
-      },
-      {
-        id: 7,
-        name: 'Party Seven',
-        hqAddress: 'Ojota, Lagos, Nigeria',
-        logoUrl: 'http://exampleSeven.com',
       },
     ];
   }

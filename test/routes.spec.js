@@ -1,3 +1,4 @@
+import faker from 'faker';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../src/index';
@@ -21,7 +22,7 @@ describe('Undefined Route', () => {
     chai.request(server)
       .post('/api/v1/anyRoute')
       .send({
-        name: 'John Doe',
+        name: faker.name.findName(),
         hqAddress: '12, Empty Street, Cul de Sacs, NG',
         logoUrl: 'https://example.com',
       })
@@ -34,7 +35,7 @@ describe('Undefined Route', () => {
     chai.request(server)
       .patch('/api/v1/anyRoute')
       .send({
-        name: 'John Doe',
+        name: faker.name.findName(),
       })
       .end((err, res) => {
         expect(res).to.have.status(404);
@@ -57,7 +58,7 @@ describe('POST /api/v1/parties', () => {
       chai.request(server)
         .post('/api/v1/parties')
         .send({
-          name: 'John Doe',
+          name: faker.name.findName(),
           hqAddress: '12, Empty Street, Cul de Sacs, NG',
           logoUrl: 'https://example.com',
         })
@@ -71,7 +72,7 @@ describe('POST /api/v1/parties', () => {
       chai.request(server)
         .post('/api/v1/parties')
         .send({
-          name: 'John Doe',
+          name: faker.name.findName(),
           hqAddress: '12, Empty Street, Cul de Sacs, NG',
           logoUrl: 'https://example.com',
         })
@@ -85,7 +86,7 @@ describe('POST /api/v1/parties', () => {
       chai.request(server)
         .post('/api/v1/parties')
         .send({
-          name: 'John Doe',
+          name: faker.name.findName(),
           hqAddress: '12, Empty Street, Cul de Sacs, NG',
           logoUrl: 'https://example.com',
         })
@@ -99,7 +100,7 @@ describe('POST /api/v1/parties', () => {
       chai.request(server)
         .post('/api/v1/parties')
         .send({
-          name: 'John Doe',
+          name: faker.name.findName(),
           hqAddress: '12, Empty Street, Cul de Sacs, NG',
           logoUrl: 'https://example.com',
         })
@@ -113,7 +114,7 @@ describe('POST /api/v1/parties', () => {
       chai.request(server)
         .post('/api/v1/parties')
         .send({
-          name: 'John Doe',
+          name: faker.name.findName(),
           hqAddress: '12, Empty Street, Cul de Sacs, NG',
           logoUrl: 'https://example.com',
         })
@@ -128,7 +129,7 @@ describe('POST /api/v1/parties', () => {
         chai.request(server)
           .post('/api/v1/parties')
           .send({
-            name: 'John Doe',
+            name: faker.name.findName(),
             hqAddress: '12, Empty Street, Cul de Sacs, NG',
             logoUrl: 'https://example.com',
           })
@@ -142,7 +143,7 @@ describe('POST /api/v1/parties', () => {
         chai.request(server)
           .post('/api/v1/parties')
           .send({
-            name: 'John Doe',
+            name: faker.name.findName(),
             hqAddress: '12, Empty Street, Cul de Sacs, NG',
             logoUrl: 'https://example.com',
           })
@@ -172,7 +173,7 @@ describe('POST /api/v1/parties', () => {
       chai.request(server)
         .post('/api/v1/parties')
         .send({
-          name: 'John Doe',
+          name: faker.name.findName(),
           logoUrl: 'https://example.com',
         })
         .end((err, res) => {
@@ -185,25 +186,11 @@ describe('POST /api/v1/parties', () => {
       chai.request(server)
         .post('/api/v1/parties')
         .send({
-          name: 'John Doe',
+          name: faker.name.findName(),
           hqAddress: '12, Empty Street, Cul de Sacs, NG',
         })
         .end((err, res) => {
           expect(res.body).to.have.ownProperty('error').that.is.a('string');
-          return done();
-        });
-    });
-
-    it('should return correct status code', (done) => {
-      chai.request(server)
-        .post('/api/v1/parties')
-        .send({
-          name: ['John', 'Doe'],
-          hqAddress: '12, Empty Street, Cul de Sacs, NG',
-          logoUrl: 'https://example.com',
-        })
-        .end((err, res) => {
-          expect(res).to.have.status(422);
           return done();
         });
     });
@@ -413,57 +400,27 @@ describe('GET /api/v1/parties', () => {
   });
 
   describe('On failed request/response cycle', () => {
-    before(function xyz() {
-      if (partyDb.findAll().length) {
-        this.skip();
-      }
-    });
-
-    it('should return status and error properties', (done) => {
-      chai.request(server)
-        .get('/api/v1/parties/0')
-        .end((err, res) => {
-          expect(res.body).to.have.all.keys('status', 'error');
-          return done();
-        });
-    });
-
-    it('should return status property of number type', (done) => {
+    it('should return 404 for empty database', (done) => {
       chai.request(server)
         .get('/api/v1/parties')
         .end((err, res) => {
-          expect(res.body).to.have.ownProperty('status').that.is.a('number');
-          return done();
-        });
-    });
-
-    it('should return error property of string type', (done) => {
-      chai.request(server)
-        .get('/api/v1/parties')
-        .end((err, res) => {
-          expect(res.body).to.have.ownProperty('error').that.is.a('string');
-          return done();
-        });
-    });
-
-    it('should return correct status code', (done) => {
-      chai.request(server)
-        .get('/api/v1/parties')
-        .end((err, res) => {
-          expect(res).to.have.status(404);
+          if (!partyDb.findAll().length) {
+            expect(res).to.have.status(404);
+            return done();
+          }
           return done();
         });
     });
   });
 });
 
-/* ****** Feature: Edit a party name ******* */
+/* ****** Feature: Update a party name ******* */
 describe('PATCH /api/v1/parties/<party-id>/name', () => {
   describe('On successful request/response cycle', () => {
     it('should return status and data properties', (done) => {
       chai.request(server)
         .patch('/api/v1/parties/1/name')
-        .send({ name: 'Jane Doe' })
+        .send({ name: faker.name.findName() })
         .end((err, res) => {
           expect(res.body).to.have.all.keys('status', 'data');
           return done();
@@ -473,7 +430,7 @@ describe('PATCH /api/v1/parties/<party-id>/name', () => {
     it('should return status property of number type', (done) => {
       chai.request(server)
         .patch('/api/v1/parties/1/name')
-        .send({ name: 'Jane Doe' })
+        .send({ name: faker.name.findName() })
         .end((err, res) => {
           expect(res.body).to.have.ownProperty('status').that.is.a('number');
           return done();
@@ -483,7 +440,7 @@ describe('PATCH /api/v1/parties/<party-id>/name', () => {
     it('should return data property of array type', (done) => {
       chai.request(server)
         .patch('/api/v1/parties/1/name')
-        .send({ name: 'Jane Doe' })
+        .send({ name: faker.name.findName() })
         .end((err, res) => {
           expect(res.body).to.have.ownProperty('data').that.is.an('array');
           return done();
@@ -493,7 +450,7 @@ describe('PATCH /api/v1/parties/<party-id>/name', () => {
     it('should return correct status code', (done) => {
       chai.request(server)
         .patch('/api/v1/parties/1/name')
-        .send({ name: 'Jane Doe' })
+        .send({ name: faker.name.findName() })
         .end((err, res) => {
           expect(res).to.have.status(200);
           return done();
@@ -503,7 +460,7 @@ describe('PATCH /api/v1/parties/<party-id>/name', () => {
     it('should return data of single element', (done) => {
       chai.request(server)
         .patch('/api/v1/parties/1/name')
-        .send({ name: 'Jane Doe' })
+        .send({ name: faker.name.findName() })
         .end((err, res) => {
           expect(res.body.data).to.have.lengthOf(1);
           return done();
@@ -514,7 +471,7 @@ describe('PATCH /api/v1/parties/<party-id>/name', () => {
       it('should return id property of number type', (done) => {
         chai.request(server)
           .patch('/api/v1/parties/1/name')
-          .send({ name: 'Jane Doe' })
+          .send({ name: faker.name.findName() })
           .end((err, res) => {
             expect(res.body.data[0]).to.have.ownProperty('id').that.is.a('number');
             return done();
@@ -524,7 +481,7 @@ describe('PATCH /api/v1/parties/<party-id>/name', () => {
       it('should return name property of string type', (done) => {
         chai.request(server)
           .patch('/api/v1/parties/1/name')
-          .send({ name: 'Jane Doe' })
+          .send({ name: faker.name.findName() })
           .end((err, res) => {
             expect(res.body.data[0]).to.have.ownProperty('name').that.is.a('string');
             return done();
@@ -537,7 +494,7 @@ describe('PATCH /api/v1/parties/<party-id>/name', () => {
     it('should return status and error properties', (done) => {
       chai.request(server)
         .patch('/api/v1/parties/0/name')
-        .send({ name: 'Jane Doe' })
+        .send({ name: faker.name.findName() })
         .end((err, res) => {
           expect(res.body).to.have.all.keys('status', 'error');
           return done();
@@ -564,12 +521,35 @@ describe('PATCH /api/v1/parties/<party-id>/name', () => {
         });
     });
 
-    it('should return correct status code for unavailable resource', (done) => {
+    it('should return 404 for unavailable resource', (done) => {
       chai.request(server)
         .patch('/api/v1/parties/0/name')
-        .send({ name: 'John Doe' })
+        .send({ name: faker.name.findName() })
         .end((err, res) => {
           expect(res).to.have.status(404);
+          return done();
+        });
+    });
+
+    it('should return 422 for invalid parameter', (done) => {
+      chai.request(server)
+        .patch('/api/v1/parties/1/hello')
+        .send({ name: faker.name.findName() })
+        .end((err, res) => {
+          expect(res).to.have.status(422);
+          return done();
+        });
+    });
+
+    it('should return 422 for excess field submission', (done) => {
+      chai.request(server)
+        .patch('/api/v1/parties/1/name')
+        .send({
+          name: faker.name.findName(),
+          logoUrl: faker.internet.url(),
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(422);
           return done();
         });
     });
@@ -683,7 +663,7 @@ describe('POST /api/v1/offices', () => {
         .post('/api/v1/offices')
         .send({
           type: 'Federal',
-          name: 'President',
+          name: 'Office Three',
         })
         .end((err, res) => {
           expect(res.body).to.have.all.keys('status', 'data');
@@ -695,8 +675,8 @@ describe('POST /api/v1/offices', () => {
       chai.request(server)
         .post('/api/v1/offices')
         .send({
-          type: 'Federal',
-          name: 'President',
+          type: 'State',
+          name: 'Office Four',
         })
         .end((err, res) => {
           expect(res.body).to.have.ownProperty('status').that.is.a('number');
@@ -709,7 +689,7 @@ describe('POST /api/v1/offices', () => {
         .post('/api/v1/offices')
         .send({
           type: 'Federal',
-          name: 'President',
+          name: 'Office Five',
         })
         .end((err, res) => {
           expect(res.body).to.have.ownProperty('data').that.is.an('array');
@@ -722,7 +702,7 @@ describe('POST /api/v1/offices', () => {
         .post('/api/v1/offices')
         .send({
           type: 'Federal',
-          name: 'President',
+          name: 'Office Six',
         })
         .end((err, res) => {
           expect(res).to.have.status(201);
@@ -735,7 +715,7 @@ describe('POST /api/v1/offices', () => {
         .post('/api/v1/offices')
         .send({
           type: 'Federal',
-          name: 'President',
+          name: 'Office Seven',
         })
         .end((err, res) => {
           expect(res.body.data).to.have.lengthOf(1);
@@ -749,7 +729,7 @@ describe('POST /api/v1/offices', () => {
           .post('/api/v1/offices')
           .send({
             type: 'Federal',
-            name: 'President',
+            name: 'Office Eight',
           })
           .end((err, res) => {
             expect(res.body.data[0]).to.have.ownProperty('id').that.is.a('number');
@@ -762,7 +742,7 @@ describe('POST /api/v1/offices', () => {
           .post('/api/v1/offices')
           .send({
             type: 'Federal',
-            name: 'President',
+            name: 'Office Nine',
           })
           .end((err, res) => {
             expect(res.body.data[0]).to.have.ownProperty('name').that.is.a('string');
@@ -789,7 +769,7 @@ describe('POST /api/v1/offices', () => {
       chai.request(server)
         .post('/api/v1/offices')
         .send({
-          name: 'President',
+          name: 'Office Three',
         })
         .end((err, res) => {
           expect(res.body).to.have.ownProperty('status').that.is.a('number');
@@ -805,19 +785,6 @@ describe('POST /api/v1/offices', () => {
         })
         .end((err, res) => {
           expect(res).to.have.status(400);
-          return done();
-        });
-    });
-
-    it('should return correct status code for invalid data', (done) => {
-      chai.request(server)
-        .post('/api/v1/offices')
-        .send({
-          name: ['John', 'Doe'],
-          type: 'Federal',
-        })
-        .end((err, res) => {
-          expect(res).to.have.status(422);
           return done();
         });
     });
@@ -1008,44 +975,14 @@ describe('GET /api/v1/offices', () => {
   });
 
   describe('On failed request/response cycle', () => {
-    before(function xyz() {
-      if (officeDb.findAll().length) {
-        this.skip();
-      }
-    });
-
-    it('should return status and error properties', (done) => {
-      chai.request(server)
-        .get('/api/v1/offices/0')
-        .end((err, res) => {
-          expect(res.body).to.have.all.keys('status', 'error');
-          return done();
-        });
-    });
-
-    it('should return status property of number type', (done) => {
+    it('should return 404 for empty office Database', (done) => {
       chai.request(server)
         .get('/api/v1/offices')
         .end((err, res) => {
-          expect(res.body).to.have.ownProperty('status').that.is.a('number');
-          return done();
-        });
-    });
-
-    it('should return error property of string type', (done) => {
-      chai.request(server)
-        .get('/api/v1/offices')
-        .end((err, res) => {
-          expect(res.body).to.have.ownProperty('error').that.is.a('string');
-          return done();
-        });
-    });
-
-    it('should return correct status code', (done) => {
-      chai.request(server)
-        .get('/api/v1/offices')
-        .end((err, res) => {
-          expect(res).to.have.status(404);
+          if (!officeDb.findAll().length) {
+            expect(res).to.have.status(404);
+            return done();
+          }
           return done();
         });
     });

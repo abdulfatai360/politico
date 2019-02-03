@@ -1,37 +1,7 @@
 import officeDb from '../models/office';
 
 class Office {
-  static post(req, res) {
-    const { type, name } = req.body;
-
-    if (!type) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Office type is required',
-      });
-    }
-
-    if (!name) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Office name is required',
-      });
-    }
-
-    if (typeof type !== 'string') {
-      return res.status(422).json({
-        status: 422,
-        error: 'Office type is invalid',
-      });
-    }
-
-    if (typeof name !== 'string') {
-      return res.status(422).json({
-        status: 422,
-        error: 'Office name is invalid',
-      });
-    }
-
+  static create(req, res) {
     const office = officeDb.create(req.body);
     return res.status(201).json({
       status: 201,
@@ -39,23 +9,14 @@ class Office {
     });
   }
 
-  static getOffice(req, res) {
-    let { id } = req.params;
-    id = Number(id);
-
-    if (Number.isNaN(id)) {
-      return res.status(422).json({
-        status: 422,
-        error: 'Office ID is invalid',
-      });
-    }
-
+  static get(req, res) {
+    const id = Number(req.params.id);
     const office = officeDb.findOne(id);
 
     if (!office) {
       return res.status(404).json({
         status: 404,
-        error: 'Office not found',
+        error: 'Office record not found in Database',
       });
     }
 
@@ -65,13 +26,13 @@ class Office {
     });
   }
 
-  static getAllOffices(req, res) {
+  static getAll(req, res) {
     const officeList = officeDb.findAll();
 
-    if (!officeList) {
+    if (!officeList.length) {
       return res.status(404).json({
         status: 404,
-        error: 'No office in the Database',
+        error: 'No office record in the Database',
       });
     }
 

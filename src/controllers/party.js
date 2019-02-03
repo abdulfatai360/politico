@@ -1,51 +1,7 @@
 import partyDb from '../models/party';
 
 class Party {
-  static post(req, res) {
-    const { name, hqAddress, logoUrl } = req.body;
-
-    if (!name) {
-      return res.status(422).json({
-        status: 422,
-        error: 'Party name is required',
-      });
-    }
-
-    if (!hqAddress) {
-      return res.status(422).json({
-        status: 422,
-        error: 'Party address field is required',
-      });
-    }
-
-    if (!logoUrl) {
-      return res.status(422).json({
-        status: 422,
-        error: 'Party logo field is required',
-      });
-    }
-
-    if (typeof name !== 'string') {
-      return res.status(422).json({
-        status: 422,
-        error: 'Party name is invalid',
-      });
-    }
-
-    if (typeof hqAddress !== 'string') {
-      return res.status(422).json({
-        status: 422,
-        error: 'Party address field is invalid',
-      });
-    }
-
-    if (typeof logoUrl !== 'string') {
-      return res.status(422).json({
-        status: 422,
-        error: 'Party logo field is invalid',
-      });
-    }
-
+  static create(req, res) {
     const party = partyDb.create(req.body);
     return res.status(201).json({
       status: 201,
@@ -53,34 +9,24 @@ class Party {
     });
   }
 
-  static getParty(req, res) {
-    let { id } = req.params;
-    id = Number(id);
-
-    if (Number.isNaN(id)) {
-      return res.status(422).json({
-        status: 422,
-        error: 'Party ID is invalid',
-      });
-    }
-
-    const party = partyDb.findOne(id);
+  static get(req, res) {
+    const party = partyDb.findOne(Number(req.params.id));
 
     if (!party) {
       return res.status(404).json({
         status: 404,
-        error: 'Party not found',
+        error: 'Party not found in Database',
       });
     }
 
-    const { name, logoUrl } = party;
+    const { id, name, logoUrl } = party;
     return res.status(200).json({
       status: 200,
       data: [{ id, name, logoUrl }],
     });
   }
 
-  static getAllParties(req, res) {
+  static getAll(req, res) {
     if (!partyDb.findAll().length) {
       return res.status(404).json({
         status: 404,
@@ -88,96 +34,49 @@ class Party {
       });
     }
 
-    const filter = partyDb.findAll()
+    const resSpec = partyDb.findAll()
       .map(({ id, name, logoUrl }) => ({ id, name, logoUrl }));
 
     return res.status(200).json({
       status: 200,
-      data: filter,
+      data: resSpec,
     });
   }
 
-  static updatePartyName(req, res) {
-    if (!req.body.name) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Name field must be supplied',
-      });
-    }
+  static updateName(req, res) {
+    const fieldsToUpdate = Object.keys(req.body);
+    const id = Number(req.params.id);
 
-    if (!req.params.id) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Id parameter is missing',
-      });
-    }
-
-    if (!req.params.name) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Name parameter is missing',
-      });
-    }
-
-    if (Number.isNaN(Number(req.params.id))) {
+    if (fieldsToUpdate.length > 1) {
       return res.status(422).json({
         status: 422,
-        error: 'Id parameter is invalid',
+        error: 'Excess fields. Only name field can be updated',
       });
     }
 
-    if (!Number.isNaN(Number(req.params.name))) {
-      return res.status(422).json({
-        status: 422,
-        error: 'Name parameter is invalid',
-      });
-    }
-
-    if (Object.keys(req.params).length > 2 || Object.keys(req.body).length > 2) {
-      return res.status(422).json({
-        status: 422,
-        error: 'Excess fields or parameters. Only name field can be edited',
-      });
-    }
-
-    if (Object.keys(req.params).length < 2 || Object.keys(req.body).length < 1) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Inadequate parameters field submission',
-      });
-    }
-
-    const party = partyDb.findOne(Number(req.params.id));
+    const party = partyDb.findOne(id);
 
     if (!party) {
       return res.status(404).json({
         status: 404,
-        error: 'Party not found',
+        error: 'Party not found in Database',
       });
     }
 
     return res.status(200).json({
       status: 200,
-      data: [partyDb.update(Number(req.params.id), req.body.name)],
+      data: [partyDb.update(id, req.body.name)],
     });
   }
 
-  static deleteParty(req, res) {
-    let { id } = req.params;
-    id = Number(id);
-
-    if (Number.isNaN(id)) {
-      return res.status(422).json({
-        status: 422,
-        error: 'Party ID is invalid',
-      });
-    }
+  static delete(req, res) {
+    const id = Number(req.params.id);
 
     const party = partyDb.findOne(id);
     if (!party) {
       return res.status(404).json({
         status: 404,
-        error: 'Party not found',
+        error: 'Party not found in Database',
       });
     }
 
