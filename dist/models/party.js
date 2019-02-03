@@ -12,7 +12,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 var generateId = function () {
-  var id = 7;
+  var id = 2;
   return function () {
     id += 1;
     return id;
@@ -35,31 +35,6 @@ function () {
       name: 'Party Two',
       hqAddress: 'Ojota, Lagos, Nigeria',
       logoUrl: 'http://exampletwo.com'
-    }, {
-      id: 3,
-      name: 'Party Three',
-      hqAddress: 'Ojota, Lagos, Nigeria',
-      logoUrl: 'http://exampleThree.com'
-    }, {
-      id: 4,
-      name: 'Party Four',
-      hqAddress: 'Ojota, Lagos, Nigeria',
-      logoUrl: 'http://exampleFour.com'
-    }, {
-      id: 5,
-      name: 'Party Five',
-      hqAddress: 'Ojota, Lagos, Nigeria',
-      logoUrl: 'http://exampleFive.com'
-    }, {
-      id: 6,
-      name: 'Party Six',
-      hqAddress: 'Ojota, Lagos, Nigeria',
-      logoUrl: 'http://exampleSix.com'
-    }, {
-      id: 7,
-      name: 'Party Seven',
-      hqAddress: 'Ojota, Lagos, Nigeria',
-      logoUrl: 'http://exampleSeven.com'
     }];
   }
 

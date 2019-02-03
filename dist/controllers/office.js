@@ -23,40 +23,8 @@ function () {
   }
 
   _createClass(Office, null, [{
-    key: "post",
-    value: function post(req, res) {
-      var _req$body = req.body,
-          type = _req$body.type,
-          name = _req$body.name;
-
-      if (!type) {
-        return res.status(400).json({
-          status: 400,
-          error: 'Office type is required'
-        });
-      }
-
-      if (!name) {
-        return res.status(400).json({
-          status: 400,
-          error: 'Office name is required'
-        });
-      }
-
-      if (typeof type !== 'string') {
-        return res.status(422).json({
-          status: 422,
-          error: 'Office type is invalid'
-        });
-      }
-
-      if (typeof name !== 'string') {
-        return res.status(422).json({
-          status: 422,
-          error: 'Office name is invalid'
-        });
-      }
-
+    key: "create",
+    value: function create(req, res) {
       var office = _office.default.create(req.body);
 
       return res.status(201).json({
@@ -65,24 +33,16 @@ function () {
       });
     }
   }, {
-    key: "getOffice",
-    value: function getOffice(req, res) {
-      var id = req.params.id;
-      id = Number(id);
-
-      if (Number.isNaN(id)) {
-        return res.status(422).json({
-          status: 422,
-          error: 'Office ID is invalid'
-        });
-      }
+    key: "get",
+    value: function get(req, res) {
+      var id = Number(req.params.id);
 
       var office = _office.default.findOne(id);
 
       if (!office) {
         return res.status(404).json({
           status: 404,
-          error: 'Office not found'
+          error: 'Office record not found in Database'
         });
       }
 
@@ -92,14 +52,14 @@ function () {
       });
     }
   }, {
-    key: "getAllOffices",
-    value: function getAllOffices(req, res) {
+    key: "getAll",
+    value: function getAll(req, res) {
       var officeList = _office.default.findAll();
 
-      if (!officeList) {
+      if (!officeList.length) {
         return res.status(404).json({
           status: 404,
-          error: 'No office in the Database'
+          error: 'No office record in the Database'
         });
       }
 
