@@ -23,55 +23,8 @@ function () {
   }
 
   _createClass(Party, null, [{
-    key: "post",
-    value: function post(req, res) {
-      var _req$body = req.body,
-          name = _req$body.name,
-          hqAddress = _req$body.hqAddress,
-          logoUrl = _req$body.logoUrl;
-
-      if (!name) {
-        return res.status(422).json({
-          status: 422,
-          error: 'Party name is required'
-        });
-      }
-
-      if (!hqAddress) {
-        return res.status(422).json({
-          status: 422,
-          error: 'Party address field is required'
-        });
-      }
-
-      if (!logoUrl) {
-        return res.status(422).json({
-          status: 422,
-          error: 'Party logo field is required'
-        });
-      }
-
-      if (typeof name !== 'string') {
-        return res.status(422).json({
-          status: 422,
-          error: 'Party name is invalid'
-        });
-      }
-
-      if (typeof hqAddress !== 'string') {
-        return res.status(422).json({
-          status: 422,
-          error: 'Party address field is invalid'
-        });
-      }
-
-      if (typeof logoUrl !== 'string') {
-        return res.status(422).json({
-          status: 422,
-          error: 'Party logo field is invalid'
-        });
-      }
-
+    key: "create",
+    value: function create(req, res) {
       var party = _party.default.create(req.body);
 
       return res.status(201).json({
@@ -80,28 +33,19 @@ function () {
       });
     }
   }, {
-    key: "getParty",
-    value: function getParty(req, res) {
-      var id = req.params.id;
-      id = Number(id);
-
-      if (Number.isNaN(id)) {
-        return res.status(422).json({
-          status: 422,
-          error: 'Party ID is invalid'
-        });
-      }
-
-      var party = _party.default.findOne(id);
+    key: "get",
+    value: function get(req, res) {
+      var party = _party.default.findOne(Number(req.params.id));
 
       if (!party) {
         return res.status(404).json({
           status: 404,
-          error: 'Party not found'
+          error: 'Party not found in Database'
         });
       }
 
-      var name = party.name,
+      var id = party.id,
+          name = party.name,
           logoUrl = party.logoUrl;
       return res.status(200).json({
         status: 200,
@@ -113,8 +57,8 @@ function () {
       });
     }
   }, {
-    key: "getAllParties",
-    value: function getAllParties(req, res) {
+    key: "getAll",
+    value: function getAll(req, res) {
       if (!_party.default.findAll().length) {
         return res.status(404).json({
           status: 404,
@@ -122,7 +66,7 @@ function () {
         });
       }
 
-      var filter = _party.default.findAll().map(function (_ref) {
+      var resSpec = _party.default.findAll().map(function (_ref) {
         var id = _ref.id,
             name = _ref.name,
             logoUrl = _ref.logoUrl;
@@ -135,85 +79,19 @@ function () {
 
       return res.status(200).json({
         status: 200,
-        data: filter
+        data: resSpec
       });
     }
   }, {
-    key: "updatePartyName",
-    value: function updatePartyName(req, res) {
-      if (!req.body.name) {
-        return res.status(400).json({
-          status: 400,
-          error: 'Name field must be supplied'
-        });
-      }
+    key: "updateName",
+    value: function updateName(req, res) {
+      var fieldsToUpdate = Object.keys(req.body);
+      var id = Number(req.params.id);
 
-      if (!req.params.id) {
-        return res.status(400).json({
-          status: 400,
-          error: 'Id parameter is missing'
-        });
-      }
-
-      if (!req.params.name) {
-        return res.status(400).json({
-          status: 400,
-          error: 'Name parameter is missing'
-        });
-      }
-
-      if (Number.isNaN(Number(req.params.id))) {
+      if (fieldsToUpdate.length > 1) {
         return res.status(422).json({
           status: 422,
-          error: 'Id parameter is invalid'
-        });
-      }
-
-      if (!Number.isNaN(Number(req.params.name))) {
-        return res.status(422).json({
-          status: 422,
-          error: 'Name parameter is invalid'
-        });
-      }
-
-      if (Object.keys(req.params).length > 2 || Object.keys(req.body).length > 2) {
-        return res.status(422).json({
-          status: 422,
-          error: 'Excess fields or parameters. Only name field can be edited'
-        });
-      }
-
-      if (Object.keys(req.params).length < 2 || Object.keys(req.body).length < 1) {
-        return res.status(400).json({
-          status: 400,
-          error: 'Inadequate parameters field submission'
-        });
-      }
-
-      var party = _party.default.findOne(Number(req.params.id));
-
-      if (!party) {
-        return res.status(404).json({
-          status: 404,
-          error: 'Party not found'
-        });
-      }
-
-      return res.status(200).json({
-        status: 200,
-        data: [_party.default.update(Number(req.params.id), req.body.name)]
-      });
-    }
-  }, {
-    key: "deleteParty",
-    value: function deleteParty(req, res) {
-      var id = req.params.id;
-      id = Number(id);
-
-      if (Number.isNaN(id)) {
-        return res.status(422).json({
-          status: 422,
-          error: 'Party ID is invalid'
+          error: 'Excess fields. Only name field can be updated'
         });
       }
 
@@ -222,7 +100,26 @@ function () {
       if (!party) {
         return res.status(404).json({
           status: 404,
-          error: 'Party not found'
+          error: 'Party not found in Database'
+        });
+      }
+
+      return res.status(200).json({
+        status: 200,
+        data: [_party.default.update(id, req.body.name)]
+      });
+    }
+  }, {
+    key: "delete",
+    value: function _delete(req, res) {
+      var id = Number(req.params.id);
+
+      var party = _party.default.findOne(id);
+
+      if (!party) {
+        return res.status(404).json({
+          status: 404,
+          error: 'Party not found in Database'
         });
       }
 
