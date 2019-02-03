@@ -1,12 +1,17 @@
 import express from 'express';
-import PartyControl from '../controllers/party';
+import Party from '../controllers/party';
+import Middleware from '../middleware/middleware';
 
 const router = express.Router();
 
-router.post('/', PartyControl.post);
-router.get('/:id', PartyControl.getParty);
-router.get('/', PartyControl.getAllParties);
-router.patch('/:id/:name', PartyControl.updatePartyName);
-router.delete('/:id', PartyControl.deleteParty);
+const {
+  validateName, validateAddress, validateUrl, validateIdParam, validateNameParam,
+} = Middleware;
+
+router.post('/', validateName, validateAddress, validateUrl, Party.create);
+router.get('/:id', validateIdParam, Party.get);
+router.get('/', Party.getAll);
+router.patch('/:id/:name', validateName, validateIdParam, validateNameParam, Party.updateName);
+router.delete('/:id', validateIdParam, Party.delete);
 
 export default router;
