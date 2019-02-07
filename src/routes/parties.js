@@ -1,5 +1,5 @@
 import express from 'express';
-import Party from '../controllers/party';
+import Party from '../controllers/parties';
 import userAuth from '../middleware/userAuth';
 import validatePartyFields from '../middleware/validateParty';
 import checkifDeleted from '../middleware/checkIfDeleted';

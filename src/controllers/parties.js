@@ -1,4 +1,4 @@
-import db from '../models/dbconfig';
+import { db } from '../models/dbconfig';
 
 class Party {
   static async create(req, res) {
@@ -35,7 +35,7 @@ class Party {
       if (rowCount === 0) {
         return res.status(404).json({
           status: 404,
-          message: 'Requested party not found in database',
+          error: 'Requested party not found in database',
         });
       }
       result = rows;

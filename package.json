@@ -6,10 +6,11 @@
   "scripts": {
     "build": "babel src --watch --out-dir dist --source-maps",
     "start": "nodemon ./dist/index.js",
-    "test": "nyc --reporter=html --reporter=text mocha --colors --exit --require @babel/register",
+    "pretest": "npm run drop-tables",
+    "test": "set NODE_ENV=test && npm run create-tables && nyc --reporter=html --reporter=text mocha tests.js --colors --exit --require @babel/register",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "migration-create": "node ./dist/migrations/index.js createAllTables",
-    "migration-drop": "node ./dist/migrations/index.js dropAllTables"
+    "create-tables": "node ./dist/models/migrations/index.js createAllTables",
+    "drop-tables": "node ./dist/models/migrations/index.js dropAllTables"
   },
   "repository": {
     "type": "git",
