@@ -9,6 +9,8 @@ var _express = _interopRequireDefault(require("express"));
 
 var _party = _interopRequireDefault(require("../controllers/party"));
 
+var _userAuth = _interopRequireDefault(require("../middleware/userAuth"));
+
 var _validateParty = _interopRequireDefault(require("../middleware/validateParty"));
 
 var _checkIfDeleted = _interopRequireDefault(require("../middleware/checkIfDeleted"));
@@ -23,10 +25,9 @@ var _validateNameParam = _interopRequireDefault(require("../middleware/validateN
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import userAuth from '../middleware/userAuth';
-var router = _express.default.Router(); // router.use(userAuth);
+var router = _express.default.Router();
 
-
+router.use(_userAuth.default);
 router.post('/', _validateParty.default, _party.default.create);
 router.get('/:id', _validateId.default, _party.default.get);
 router.get('/', _party.default.getAll);

@@ -33,13 +33,12 @@ function () {
           case 0:
             _req$body = req.body, office = _req$body.office, party = _req$body.party;
             id = req.params.id;
-            console.log('helo');
-            queryStr = "INSERT INTO candidates(office, party, candidate)\n    VALUES('".concat(office, "', '").concat(party, "', '").concat(id, "') \n    RETURNING office, candidate");
-            _context.prev = 4;
-            _context.next = 7;
+            queryStr = "INSERT INTO candidates(office, party, candidate)\n    VALUES('".concat(Number(office), "', '").concat(Number(party), "', '").concat(Number(id), "') \n    RETURNING office, candidate");
+            _context.prev = 3;
+            _context.next = 6;
             return _dbconfig.db.query(queryStr);
 
-          case 7:
+          case 6:
             _ref2 = _context.sent;
             rows = _ref2.rows;
             return _context.abrupt("return", res.status(201).json({
@@ -47,20 +46,20 @@ function () {
               data: rows[0]
             }));
 
-          case 12:
-            _context.prev = 12;
-            _context.t0 = _context["catch"](4);
+          case 11:
+            _context.prev = 11;
+            _context.t0 = _context["catch"](3);
             return _context.abrupt("return", res.status(500).json({
               status: 500,
-              error: _context.t0
+              error: _context.t0.detail
             }));
 
-          case 15:
+          case 14:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[4, 12]]);
+    }, _callee, this, [[3, 11]]);
   }));
 
   return function (_x, _x2) {

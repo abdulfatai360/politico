@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --watch --out-dir dist --source-maps",
-    "start": "nodemon ./dist/index.js",
+    "start": "node ./dist/index.js",
     "pretest": "npm run drop-tables",
     "test": "set NODE_ENV=test && npm run create-tables && nyc --reporter=html --reporter=text mocha tests.js --colors --exit --require @babel/register",
     "coverage": "nyc report --reporter=text-lcov | coveralls",

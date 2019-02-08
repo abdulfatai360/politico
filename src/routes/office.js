@@ -8,10 +8,8 @@ router.post('/:id/register', async (req, res) => {
   const { office, party } = req.body;
   const { id } = req.params;
 
-  console.log('helo');
-
   const queryStr = `INSERT INTO candidates(office, party, candidate)
-    VALUES('${office}', '${party}', '${id}') 
+    VALUES('${Number(office)}', '${Number(party)}', '${Number(id)}') 
     RETURNING office, candidate`;
 
   try {
@@ -23,7 +21,7 @@ router.post('/:id/register', async (req, res) => {
   } catch (error) {
     return res.status(500).json({
       status: 500,
-      error,
+      error: error.detail,
     });
   }
 });

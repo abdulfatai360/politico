@@ -5,7 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _dbconfig = require("../models/dbconfig");
+var _dbconfig = _interopRequireDefault(require("../models/dbconfig"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -40,7 +42,7 @@ function () {
                 queryStr = "INSERT INTO party(name, hq_address, logo_url)\n      VALUES('".concat(name, "', '").concat(hqAddress, "', '").concat(logoUrl, "') \n      RETURNING id, name");
                 _context.prev = 2;
                 _context.next = 5;
-                return _dbconfig.db.query(queryStr);
+                return _dbconfig.default.query(queryStr);
 
               case 5:
                 _ref = _context.sent;
@@ -88,7 +90,7 @@ function () {
                 queryStr = "SELECT id, name, logo_url \n      FROM party \n      WHERE id = '".concat(id, "'");
                 _context2.prev = 2;
                 _context2.next = 5;
-                return _dbconfig.db.query(queryStr);
+                return _dbconfig.default.query(queryStr);
 
               case 5:
                 _ref2 = _context2.sent;
@@ -102,7 +104,7 @@ function () {
 
                 return _context2.abrupt("return", res.status(404).json({
                   status: 404,
-                  error: 'Requested party not found in database'
+                  message: 'Requested party not found in database'
                 }));
 
               case 10:
@@ -153,7 +155,7 @@ function () {
                 queryStr = "SELECT id, name, logo_url \n      FROM party\n      ORDER BY id ASC";
                 _context3.prev = 1;
                 _context3.next = 4;
-                return _dbconfig.db.query(queryStr);
+                return _dbconfig.default.query(queryStr);
 
               case 4:
                 _ref3 = _context3.sent;
@@ -202,7 +204,7 @@ function () {
                 queryStr = "UPDATE party \n      SET name = '".concat(newName, "' \n      WHERE id = '").concat(id, "' \n      RETURNING id, name");
                 _context4.prev = 3;
                 _context4.next = 6;
-                return _dbconfig.db.query(queryStr);
+                return _dbconfig.default.query(queryStr);
 
               case 6:
                 _ref4 = _context4.sent;
@@ -250,7 +252,7 @@ function () {
                 queryStr = "DELETE FROM party WHERE id = '".concat(id, "'");
                 _context5.prev = 2;
                 _context5.next = 5;
-                return _dbconfig.db.query(queryStr);
+                return _dbconfig.default.query(queryStr);
 
               case 5:
                 return _context5.abrupt("return", res.status(200).json({
