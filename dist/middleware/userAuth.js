@@ -27,6 +27,7 @@ function userAuth(req, res, next) {
     var payload = _jsonwebtoken.default.verify(token, process.env.JWT_SECRET_KEY);
 
     req.user = payload;
+    console.log(payload);
     return next();
   } catch (error) {
     return res.status(400).json({

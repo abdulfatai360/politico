@@ -15,6 +15,7 @@ function userAuth(req, res, next) {
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET_KEY);
     req.user = payload;
+    console.log(payload);
     return next();
   } catch (error) {
     return res.status(400).json({
