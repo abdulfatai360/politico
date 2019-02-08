@@ -1,10 +1,12 @@
 import '@babel/polyfill';
 import express from 'express';
 import { db } from '../models/dbconfig';
+import userAuth from '../middleware/userAuth';
+import adminAuth from '../middleware/adminAuth';
 
 const router = express.Router();
 
-router.post('/:id/register', async (req, res) => {
+router.post('/:id/register', userAuth, adminAuth, async (req, res) => {
   const { office, party } = req.body;
   const { id } = req.params;
 

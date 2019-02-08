@@ -1,0 +1,81 @@
+
+// sample parties
+
+{
+  "name": "Accord",
+  "acronym": "A",
+  "hqAddress": "Plot 488, 7 Yauri Street, Area 3, Garki Abuja",
+  "logoUrl": "http://accordparty.com/logo.png",
+}
+
+{
+  "name": "Action Alliance",
+  "acronym": "AA",
+  "hqAddress": "Plot 1977 Orlu Street, Area 3, Garki, Abuja",
+  "logoUrl": "http://actionalliance.com/logo.png",
+},
+{
+  "name": "All Progressives Congress",
+  "acronym": "APC",
+  "hqAddress": "No. 40 Blantyre Street, Wuse II, Abuja",
+  "logoUrl": "http://apc.com/logo.png",
+},
+{
+  "name": "Peoples Democratic Party",
+  "acronym": "PDP",
+  "hqAddress": "Wadata Plaza , Michael Okpara Way , Zone 5, Wuse, Abuja",
+  "logoUrl": "http://pdp.com/logo.png",
+}
+
+
+// sample users
+
+{
+  "firstname": "Leanne",
+  "lastname": "Graham",
+  "othername": "Millan",
+  "email": "sincere@april.biz",
+  "phone": "08077073680",
+  "passportUrl": "http://hildegard.org/img.png",
+  "isAdmin": false
+},
+{
+  "firstname": "Ervin",
+  "lastname": "Howell",
+  "othername": "Darwin",
+  "username": "Antonette",
+  "email": "shanna@melissa.tv",
+  "password": "wbdnbhbbhcb",
+  "phoneNumber": "08106926593",
+  "passportUrl": "http://anastasia.net/img.png",
+  "isAdmin": false
+},
+{
+  "firstname": "Clementine",
+  "lastname": "Bauch",
+  "othername": "Samantha",
+  "email": "nathan@yesenia.net",
+  "password": "inioluwa2345",
+  "phoneNumber": "0814631235",
+  "passportUrl": "http://ramiro.info/img.png",
+  "isAdmin": true
+},
+
+// sample offices
+{
+  "type": "Federal",
+  "name": "President"
+},
+{
+  "type": "Legislative",
+  "name": "Senate"
+},
+{
+  "type": "State",
+  "name": "Governor"
+},
+{
+  "type": "Local Government",
+  "name": "Chairman"
+},
+

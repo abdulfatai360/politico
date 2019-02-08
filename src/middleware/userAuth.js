@@ -14,7 +14,6 @@ function userAuth(req, res, next) {
 
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET_KEY);
-    console.log(payload.signature)
     req.user = payload;
     return next();
   } catch (error) {

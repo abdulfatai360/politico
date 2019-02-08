@@ -11,6 +11,10 @@ var _express = _interopRequireDefault(require("express"));
 
 var _dbconfig = require("../models/dbconfig");
 
+var _userAuth = _interopRequireDefault(require("../middleware/userAuth"));
+
+var _adminAuth = _interopRequireDefault(require("../middleware/adminAuth"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -19,7 +23,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var router = _express.default.Router();
 
-router.post('/:id/register',
+router.post('/:id/register', _userAuth.default, _adminAuth.default,
 /*#__PURE__*/
 function () {
   var _ref = _asyncToGenerator(

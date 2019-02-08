@@ -9,7 +9,7 @@ var _dotenv = _interopRequireDefault(require("dotenv"));
 
 var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
 
-var _dbconfig = _interopRequireDefault(require("../models/dbconfig"));
+var _dbconfig = require("../models/dbconfig");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37,7 +37,7 @@ function _login() {
             findUserQuery = "SELECT * FROM users WHERE email='".concat(email, "'");
             _context.prev = 2;
             _context.next = 5;
-            return _dbconfig.default.query(findUserQuery);
+            return _dbconfig.db.query(findUserQuery);
 
           case 5:
             _ref = _context.sent;
