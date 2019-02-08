@@ -1,90 +1,116 @@
-import partyDb from '../models/party';
+import db from '../models/dbconfig';
 
 class Party {
-  static create(req, res) {
-    const party = partyDb.create(req.body);
-    return res.status(201).json({
-      status: 201,
-      data: [party],
-    });
-  }
+  static async create(req, res) {
+    const { name, hqAddress, logoUrl } = req.body;
 
-  static get(req, res) {
-    const party = partyDb.findOne(Number(req.params.id));
+    const queryStr = `INSERT INTO party(name, hq_address, logo_url)
+      VALUES('${name}', '${hqAddress}', '${logoUrl}') 
+      RETURNING id, name`;
 
-    if (!party) {
-      return res.status(404).json({
-        status: 404,
-        error: 'Party not found in Database',
+    try {
+      const { rows } = await db.query(queryStr);
+      return res.status(201).json({
+        status: 201,
+        data: rows,
       });
-    }
-
-    const { id, name, logoUrl } = party;
-    return res.status(200).json({
-      status: 200,
-      data: [{ id, name, logoUrl }],
-    });
-  }
-
-  static getAll(req, res) {
-    if (!partyDb.findAll().length) {
-      return res.status(404).json({
-        status: 404,
-        error: 'No party in the Database',
-      });
-    }
-
-    const resSpec = partyDb.findAll()
-      .map(({ id, name, logoUrl }) => ({ id, name, logoUrl }));
-
-    return res.status(200).json({
-      status: 200,
-      data: resSpec,
-    });
-  }
-
-  static updateName(req, res) {
-    const fieldsToUpdate = Object.keys(req.body);
-    const id = Number(req.params.id);
-
-    if (fieldsToUpdate.length > 1) {
+    } catch (error) {
       return res.status(422).json({
         status: 422,
-        error: 'Excess fields. Only name field can be updated',
+        error: 'Party already exists in database',
       });
     }
+  }
 
-    const party = partyDb.findOne(id);
+  static async get(req, res) {
+    const id = Number(req.params.id);
+    let result;
 
-    if (!party) {
-      return res.status(404).json({
-        status: 404,
-        error: 'Party not found in Database',
+    const queryStr = `SELECT id, name, logo_url 
+      FROM party 
+      WHERE id = '${id}'`;
+
+    try {
+      const { rows, rowCount } = await db.query(queryStr);
+      if (rowCount === 0) {
+        return res.status(404).json({
+          status: 404,
+          message: 'Requested party not found in database',
+        });
+      }
+      result = rows;
+    } catch (error) {
+      return res.status(500).json({
+        status: 500,
+        error: error.detail,
       });
     }
 
     return res.status(200).json({
       status: 200,
-      data: [partyDb.update(id, req.body.name)],
+      data: result,
     });
   }
 
-  static delete(req, res) {
-    const id = Number(req.params.id);
+  static async getAll(req, res) {
+    const queryStr = `SELECT id, name, logo_url 
+      FROM party
+      ORDER BY id ASC`;
 
-    const party = partyDb.findOne(id);
-    if (!party) {
-      return res.status(404).json({
-        status: 404,
-        error: 'Party not found in Database',
+    try {
+      const { rows } = await db.query(queryStr);
+      return res.status(200).json({
+        status: 200,
+        data: rows,
+      });
+    } catch (error) {
+      return res.status(500).json({
+        status: 500,
+        error: error.detail,
       });
     }
+  }
 
-    const response = partyDb.delete(id);
-    return res.status(200).json({
-      status: 200,
-      data: [response],
-    });
+  static async updateName(req, res) {
+    const id = Number(req.params.id);
+    const newName = req.body.name;
+
+    const queryStr = `UPDATE party 
+      SET name = '${newName}' 
+      WHERE id = '${id}' 
+      RETURNING id, name`;
+
+    try {
+      const { rows } = await db.query(queryStr);
+      console.log('Hello');
+      return res.status(200).json({
+        status: 200,
+        data: rows,
+      });
+    } catch (error) {
+      return res.status(500).json({
+        status: 500,
+        error,
+      });
+    }
+  }
+
+  static async delete(req, res) {
+    const id = Number(req.params.id);
+    const queryStr = `DELETE FROM party WHERE id = '${id}'`;
+
+    try {
+      await db.query(queryStr);
+      return res.status(200).json({
+        status: 200,
+        message: 'Party deleted successfully.',
+      });
+    } catch (error) {
+      return res.status(500).json({
+        status: 500,
+        error: error.detail,
+      });
+    }
   }
 }
 

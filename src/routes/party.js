@@ -1,17 +1,20 @@
 import express from 'express';
 import Party from '../controllers/party';
-import Middleware from '../middleware/middleware';
+import userAuth from '../middleware/userAuth';
+import validatePartyFields from '../middleware/validateParty';
+import checkifDeleted from '../middleware/checkIfDeleted';
+import checkFieldCount from '../middleware/checkFieldCount';
+import validateId from '../middleware/validateId';
+import validatePatch from '../middleware/validatePatch';
+import validateNameParam from '../middleware/validateNameParam';
 
 const router = express.Router();
+router.use(userAuth);
 
-const {
-  validateName, validateAddress, validateUrl, validateIdParam, validateNameParam,
-} = Middleware;
-
-router.post('/', validateName, validateAddress, validateUrl, Party.create);
-router.get('/:id', validateIdParam, Party.get);
+router.post('/', validatePartyFields, Party.create);
+router.get('/:id', validateId, Party.get);
 router.get('/', Party.getAll);
-router.patch('/:id/:name', validateName, validateIdParam, validateNameParam, Party.updateName);
-router.delete('/:id', validateIdParam, Party.delete);
+router.patch('/:id/:name', checkFieldCount, validatePatch, validateId, validateNameParam, Party.updateName);
+router.delete('/:id', checkifDeleted, validateId, Party.delete);
 
 export default router;

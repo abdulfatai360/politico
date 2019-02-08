@@ -4,10 +4,13 @@
   "description": "A web based election platform",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir dist --source-maps",
+    "build": "babel src --watch --out-dir dist --source-maps",
     "start": "node ./dist/index.js",
-    "test": "nyc --reporter=html --reporter=text mocha --colors --exit --require @babel/register",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "pretest": "npm run drop-tables",
+    "test": "set NODE_ENV=test && npm run create-tables && nyc --reporter=html --reporter=text mocha tests.js --colors --exit --require @babel/register",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "create-tables": "node ./dist/models/migrations/index.js createAllTables",
+    "drop-tables": "node ./dist/models/migrations/index.js dropAllTables"
   },
   "repository": {
     "type": "git",
@@ -37,7 +40,14 @@
     "nyc": "^13.1.0"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "@babel/polyfill": "^7.2.5",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.4.0",
+    "make-runnable": "^1.3.6",
+    "pg": "^7.8.0"
   },
   "engines": {
     "node": "10.x"
