@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import db from '../models/dbconfig';
+import { db } from '../models/dbconfig';
 
 async function validateLoginCred(req, res, next) {
   const { email, password } = req.body;
